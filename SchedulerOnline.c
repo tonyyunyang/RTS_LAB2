@@ -102,6 +102,18 @@ static void DetermineNextInterruptTime (CandidateValue)
   Use the Task data structure defined in 'Scheduler.h' to store information which can be used by the scheduler.
 
 */
+// for calculating hyper period
+int gcd(int a, int b) {
+  if (b == 0) {
+    return a;
+  }
+  return gcd(b, a % b);
+}
+
+// for calculating hyper period
+int lcm(int a, int b) {
+  return (a * b) / gcd(a, b);
+}
 
 interrupt (TIMERA0_VECTOR) TimerIntrpt (void)
 {
@@ -113,9 +125,14 @@ interrupt (TIMERA0_VECTOR) TimerIntrpt (void)
   /* When should the next timer interrupt occur? Note: we only want interrupts at job releases */
 
   /* Super simple, single task example */
-
+  unit16_t hyperperiod = 0;
   uint8_t i = 0;
-  if (NextInterruptTime % 1024 == 0) {
+  for (i = 0; i < NUMTASKS; i++) {
+      Taskp t = &Tasks[i];
+      hyperperiod = lcm(hyperperiod, t->Period);
+    }
+
+  if (NextInterruptTime % hyperperiod == 0) {
     for (i = 0; i < NUMTASKS; i++) {
       Taskp t = &Tasks[i];
       t->NextRelease += t->Period;
