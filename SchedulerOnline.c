@@ -106,7 +106,6 @@ static void DetermineNextInterruptTime (CandidateValue)
 interrupt (TIMERA0_VECTOR) TimerIntrpt (void)
 {
   ContextSwitch();
-  SetLeds(YELLOW, 1);
 
   /* ----------------------- INSERT CODE HERE ----------------------- */
 
@@ -115,13 +114,13 @@ interrupt (TIMERA0_VECTOR) TimerIntrpt (void)
 
   /* Super simple, single task example */
 
-  // First figure out the next Interrput Time
   uint8_t i = 0;
-  if (NextInterruptTime == 0) {
+  if (NextInterruptTime % 1024 == 0) {
     for (i = 0; i < NUMTASKS; i++) {
       Taskp t = &Tasks[i];
       t->NextRelease += t->Period;
       t->Activated++;
+      t->Flags = 0;
     }
   }
 
@@ -132,29 +131,18 @@ interrupt (TIMERA0_VECTOR) TimerIntrpt (void)
     Taskp t = &Tasks[i];
     if (t->Flags == TT) {
       t->NextRelease += t->Period;
-      t->Flags == 0;
+      t->Flags = 0;
     }
     DetermineNextInterruptTime(t->NextRelease);
-  }
-
-    if (NextInterruptTime == 256) {
-  SetLeds(YELLOW, 0);
-  }
-
-  if (NextInterruptTime == 512) {
-  SetLeds(YELLOW, 0);
   }
   
   for (i = 0; i < NUMTASKS; i++) {
     Taskp t = &Tasks[i];
     if (t->NextRelease == NextInterruptTime) {
-      t->Flags == TT;
+      t->Flags = TT;
       t->Activated++;
     }
   }
-
-
-
   // Taskp t = &Tasks[0];
   // t->NextRelease += t->Period; // set next release time
   // t->Activated++;
