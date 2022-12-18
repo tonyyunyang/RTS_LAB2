@@ -118,14 +118,13 @@ int lcm(int a, int b) {
 interrupt (TIMERA0_VECTOR) TimerIntrpt (void)
 {
   ContextSwitch();
-
   /* ----------------------- INSERT CODE HERE ----------------------- */
 
   /* Insert timer interrupt logic, what tasks are pending? */ 
   /* When should the next timer interrupt occur? Note: we only want interrupts at job releases */
 
   /* Super simple, single task example */
-  unit16_t hyperperiod = 0;
+  uint16_t hyperperiod = 0;
   uint8_t i = 0;
   for (i = 0; i < NUMTASKS; i++) {
       Taskp t = &Tasks[i];
@@ -136,6 +135,7 @@ interrupt (TIMERA0_VECTOR) TimerIntrpt (void)
     for (i = 0; i < NUMTASKS; i++) {
       Taskp t = &Tasks[i];
       t->NextRelease += t->Period;
+      t->Remain =+ t->ExecutionTime;
       t->Activated++;
       t->Flags = 0;
     }
@@ -146,8 +146,11 @@ interrupt (TIMERA0_VECTOR) TimerIntrpt (void)
 
   for (i = 0; i < NUMTASKS; i++) {
     Taskp t = &Tasks[i];
-    if (t->Flags == TT) {
+    if (t->Flags == TT || t->Flags == 13) {
+      t->Remain =+ t->ExecutionTime;
       t->NextRelease += t->Period;
+      t->Flags = 9;
+    }else if (t->Flags == 9){
       t->Flags = 0;
     }
     DetermineNextInterruptTime(t->NextRelease);
@@ -156,7 +159,8 @@ interrupt (TIMERA0_VECTOR) TimerIntrpt (void)
   for (i = 0; i < NUMTASKS; i++) {
     Taskp t = &Tasks[i];
     if (t->NextRelease == NextInterruptTime) {
-      t->Flags = TT;
+      if(t->Flags == 9) { t->Flags = 13; }
+      else{ t->Flags = TT; }
       t->Activated++;
     }
   }
@@ -170,9 +174,8 @@ interrupt (TIMERA0_VECTOR) TimerIntrpt (void)
  
 
   TACCR0 = NextInterruptTime;
-
-  // CALL_SCHEDULER;
-
+  
+  //CALL_SCHEDULER;
   ResumeContext();
 }
 
