@@ -27,6 +27,8 @@ void Scheduler_P_FP (Task Tasks[])
   uint16_t eliminateWindowTime = 0;
   Taskp t = &Tasks[NUMTASKS - 1];
   uint16_t window = t->WindowTime;
+
+  
   
   for (i = (NUMTASKS - 1); i >= 0; i--) {
     Taskp ts = &Tasks[i];
@@ -48,6 +50,15 @@ void Scheduler_P_FP (Task Tasks[])
       window -= eliminateWindowTime;
     }
   }
+
+  // if (window > 0) {
+  //   Task *Kill_Time;
+  //   Kill_Time->CurrentExecutionTime = 500;
+  //   Kill_Time->RemainExecutionTime = 1;
+  //   void (*TaskFunc) (uint16_t) = &KillTime;
+  //   Kill_Time->Taskf = TaskFunc;
+  //   ExecuteTask(Kill_Time);
+  // }
 
 
   // Taskp t = &Tasks[0];

@@ -53,6 +53,11 @@ void BlinkRed (uint16_t ExecutionTime)
   SetLeds (RED, 0);
 }
 
+void KillTime (uint16_t ExecutionTime)
+{
+  CountRealtimeDelay(ExecutionTime);
+}
+
 int main(void) 
 { 
   WDTCTL = WDTPW + WDTHOLD;       // Stop watchdog timer 
