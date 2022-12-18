@@ -79,27 +79,27 @@ void Scheduler_P_FP (Task Tasks[])
       t->Remain = 0;
     }
   }
-
-  // uint8_t QIAN1 = t->Remain / 1000;
-  // uint8_t BAI1 = (t->Remain - QIAN1 * 1000) / 100;
-  // uint8_t SHI1 = (t->Remain - QIAN1 * 1000 - BAI1 * 100) / 10;
-  // uint8_t GE1 = t->Remain - QIAN1 * 1000 - BAI1 * 100 - SHI1 * 10;
-  // for(i = 0; i < QIAN1; i++){
-  //   SetLeds(RED, 1);
-  //   SetLeds(RED, 0);
-  // }
-  // for(i = 0; i < BAI1; i++){
-  //   SetLeds(WHITE, 1);
-  //   SetLeds(WHITE, 0);
-  // }
-  // for(i = 0; i < SHI1; i++){
-  //   SetLeds(BROWN, 1);
-  //   SetLeds(BROWN, 0);
-  // }
-  // for(i = 0; i < GE1; i++){
-  //   SetLeds(PURPLE, 1);
-  //   SetLeds(PURPLE, 0);
-  // }
+// Taskp t = &Tasks[0];
+//   uint8_t QIAN1 = t->Remain / 1000;
+//   uint8_t BAI1 = (t->Remain - QIAN1 * 1000) / 100;
+//   uint8_t SHI1 = (t->Remain - QIAN1 * 1000 - BAI1 * 100) / 10;
+//   uint8_t GE1 = t->Remain - QIAN1 * 1000 - BAI1 * 100 - SHI1 * 10;
+//   for(i = 0; i < QIAN1; i++){
+//     SetLeds(PINK, 1);
+//     SetLeds(PINK, 0);
+//   }
+//   for(i = 0; i < BAI1; i++){
+//     SetLeds(WHITE, 1);
+//     SetLeds(WHITE, 0);
+//   }
+//   for(i = 0; i < SHI1; i++){
+//     SetLeds(BROWN, 1);
+//     SetLeds(BROWN, 0);
+//   }
+//   for(i = 0; i < GE1; i++){
+//     SetLeds(PURPLE, 1);
+//     SetLeds(PURPLE, 0);
+//   }
 
   for(i = 0; i < NUMTASKS; i++){
     Taskp t = &Tasks[i];

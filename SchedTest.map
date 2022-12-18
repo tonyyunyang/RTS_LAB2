@@ -327,42 +327,42 @@ LOAD /opt/msp430-gcc-4.4.2/lib/gcc/msp430/4.4.2/msp2/libgcc.a
                 0x00001000                . = ALIGN (0x2)
  *(.infomemnobits.*)
 
-.bss            0x00001100       0x48
+.bss            0x00001100       0x4e
                 0x00001100                PROVIDE (__bss_start, .)
  *(.bss)
  .bss           0x00001100        0x0 /opt/msp430-gcc-4.4.2/lib/gcc/msp430/4.4.2/../../../../msp430/lib/crt430x1611.o
  .bss           0x00001100        0x0 SchedTest.o
  .bss           0x00001100        0x0 Led.o
  .bss           0x00001100        0x0 Clock.o
- .bss           0x00001100        0x6 Context.o
- .bss           0x00001106        0x0 SchedulerOnline.o
- .bss           0x00001106        0x0 Scheduler_P_FP.o
- .bss           0x00001106        0x0 Scheduler_P_EDF.o
- .bss           0x00001106        0xa TimeTracking.o
- .bss           0x00001110        0x0 /opt/msp430-gcc-4.4.2/lib/gcc/msp430/4.4.2/msp2/libgcc.a(_divmodhi4.o)
- .bss           0x00001110        0x0 /opt/msp430-gcc-4.4.2/lib/gcc/msp430/4.4.2/msp2/libgcc.a(_reset_vector__.o)
- .bss           0x00001110        0x0 /opt/msp430-gcc-4.4.2/lib/gcc/msp430/4.4.2/msp2/libgcc.a(__low_level_init.o)
- .bss           0x00001110        0x0 /opt/msp430-gcc-4.4.2/lib/gcc/msp430/4.4.2/msp2/libgcc.a(__init_stack.o)
- .bss           0x00001110        0x0 /opt/msp430-gcc-4.4.2/lib/gcc/msp430/4.4.2/msp2/libgcc.a(_copy_data.o)
- .bss           0x00001110        0x0 /opt/msp430-gcc-4.4.2/lib/gcc/msp430/4.4.2/msp2/libgcc.a(_clear_bss.o)
- .bss           0x00001110        0x0 /opt/msp430-gcc-4.4.2/lib/gcc/msp430/4.4.2/msp2/libgcc.a(__jump_to_main.o)
- .bss           0x00001110        0x0 /opt/msp430-gcc-4.4.2/lib/gcc/msp430/4.4.2/msp2/libgcc.a(_udivmodhi4.o)
+ .bss           0x00001100        0xc Context.o
+ .bss           0x0000110c        0x0 SchedulerOnline.o
+ .bss           0x0000110c        0x0 Scheduler_P_FP.o
+ .bss           0x0000110c        0x0 Scheduler_P_EDF.o
+ .bss           0x0000110c        0xa TimeTracking.o
+ .bss           0x00001116        0x0 /opt/msp430-gcc-4.4.2/lib/gcc/msp430/4.4.2/msp2/libgcc.a(_divmodhi4.o)
+ .bss           0x00001116        0x0 /opt/msp430-gcc-4.4.2/lib/gcc/msp430/4.4.2/msp2/libgcc.a(_reset_vector__.o)
+ .bss           0x00001116        0x0 /opt/msp430-gcc-4.4.2/lib/gcc/msp430/4.4.2/msp2/libgcc.a(__low_level_init.o)
+ .bss           0x00001116        0x0 /opt/msp430-gcc-4.4.2/lib/gcc/msp430/4.4.2/msp2/libgcc.a(__init_stack.o)
+ .bss           0x00001116        0x0 /opt/msp430-gcc-4.4.2/lib/gcc/msp430/4.4.2/msp2/libgcc.a(_copy_data.o)
+ .bss           0x00001116        0x0 /opt/msp430-gcc-4.4.2/lib/gcc/msp430/4.4.2/msp2/libgcc.a(_clear_bss.o)
+ .bss           0x00001116        0x0 /opt/msp430-gcc-4.4.2/lib/gcc/msp430/4.4.2/msp2/libgcc.a(__jump_to_main.o)
+ .bss           0x00001116        0x0 /opt/msp430-gcc-4.4.2/lib/gcc/msp430/4.4.2/msp2/libgcc.a(_udivmodhi4.o)
  *(SORT(.bss.*))
  *(COMMON)
- COMMON         0x00001110       0x38 SchedulerOnline.o
-                0x00001110                Tasks
-                0x00001146                NextInterruptTime
-                0x00001148                PROVIDE (__bss_end, .)
-                0x00001148                _end = .
-                0x00000048                PROVIDE (__bss_size, SIZEOF (.bss))
+ COMMON         0x00001116       0x38 SchedulerOnline.o
+                0x00001116                Tasks
+                0x0000114c                NextInterruptTime
+                0x0000114e                PROVIDE (__bss_end, .)
+                0x0000114e                _end = .
+                0x0000004e                PROVIDE (__bss_size, SIZEOF (.bss))
 
-.noinit         0x00001148        0x0
-                0x00001148                PROVIDE (__noinit_start, .)
+.noinit         0x0000114e        0x0
+                0x0000114e                PROVIDE (__noinit_start, .)
  *(.noinit)
  *(.noinit.*)
  *(COMMON)
-                0x00001148                PROVIDE (__noinit_end, .)
-                0x00001148                _end = .
+                0x0000114e                PROVIDE (__noinit_end, .)
+                0x0000114e                _end = .
 
 .vectors        0x0000ffe0       0x20
                 0x0000ffe0                PROVIDE (__vectors_start, .)
