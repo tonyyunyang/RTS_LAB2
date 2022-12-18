@@ -9,13 +9,13 @@ model : msp430f1611
 ================
 WSim stats:
 -----------
-  simulation user time          : 0.000 s (280 ns)
+  simulation user time          : 0.000 s (304 ns)
   simulation backtracks         : 0
 
 Machine stats:
 --------------
   simulated time                : 5000002021 ns (5.000 s)
-  simulation speedup            : 17.86
+  simulation speedup            : 16.45
   machine exit with signal      : none
 
 MCU:
@@ -23,7 +23,7 @@ MCU:
   simulated mcu instructions    : 1501146
   simulated mcu cycles          : 3750378
   simulated mcu mean freq       : 750075.31 c/s (0.75 MHz)
-  simulation mean freq          : 13393393.97 c/s (13.39 MHz)
+  simulation mean freq          : 12335998.74 c/s (12.34 MHz)
      - does not take into account sleep modes
   mcu exit at PC                : 0x40d0
   mcu exit in LPM mode          : Active mode
