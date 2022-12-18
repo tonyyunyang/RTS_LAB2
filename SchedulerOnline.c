@@ -125,18 +125,23 @@ interrupt (TIMERA0_VECTOR) TimerIntrpt (void)
   /* When should the next timer interrupt occur? Note: we only want interrupts at job releases */
 
   /* Super simple, single task example */
-  unit16_t hyperperiod = 0;
-  uint8_t i = 0;
-  for (i = 0; i < NUMTASKS; i++) {
-      Taskp t = &Tasks[i];
-      hyperperiod = lcm(hyperperiod, t->Period);
-    }
 
-  if (NextInterruptTime % hyperperiod == 0) {
+  // uint16_t hyperperiod = 0;
+  uint16_t oldNextInterruptTime = NextInterruptTime; // oldNextInterruptTime is also the current time when entering the interrupt
+  uint16_t windowTime = 0;
+
+  uint8_t i = 0;
+  // for (i = 0; i < NUMTASKS; i++) {
+  //   Taskp t = &Tasks[i];
+  //   hyperperiod = lcm(hyperperiod, t->Period / 4);
+  // }
+
+  if (oldNextInterruptTime % (1024*4) == 0) {
     for (i = 0; i < NUMTASKS; i++) {
       Taskp t = &Tasks[i];
       t->NextRelease += t->Period;
       t->Activated++;
+      t->RemainExecutionTime += t->ExecutionTime;
       t->Flags = 0;
     }
   }
@@ -155,11 +160,23 @@ interrupt (TIMERA0_VECTOR) TimerIntrpt (void)
   
   for (i = 0; i < NUMTASKS; i++) {
     Taskp t = &Tasks[i];
-    if (t->NextRelease == NextInterruptTime) {
+    if (t->NextRelease == NextInterruptTime){
       t->Flags = TT;
+    }
+    if ((oldNextInterruptTime % (1024*4) != 0) && (oldNextInterruptTime % t->Period == 0)) {
       t->Activated++;
+      t->RemainExecutionTime += t->ExecutionTime;
     }
   }
+
+  windowTime = (NextInterruptTime / 4) - (oldNextInterruptTime / 4);
+
+  for (i = 0; i < NUMTASKS; i++)
+  {
+    Taskp t = &Tasks[i];
+    t->WindowTime = windowTime;
+  }
+  
   // Taskp t = &Tasks[0];
   // t->NextRelease += t->Period; // set next release time
   // t->Activated++;
@@ -171,7 +188,7 @@ interrupt (TIMERA0_VECTOR) TimerIntrpt (void)
 
   TACCR0 = NextInterruptTime;
 
-  // CALL_SCHEDULER;
+  CALL_SCHEDULER;
 
   ResumeContext();
 }
