@@ -115,16 +115,13 @@ int lcm(int a, int b) {
   return (a * b) / gcd(a, b);
 }
 
+#define FP
+
+#ifdef FP
 interrupt (TIMERA0_VECTOR) TimerIntrpt (void)
 {
   ContextSwitch();
 
-  /* ----------------------- INSERT CODE HERE ----------------------- */
-
-  /* Insert timer interrupt logic, what tasks are pending? */ 
-  /* When should the next timer interrupt occur? Note: we only want interrupts at job releases */
-
-  /* Super simple, single task example */
   uint16_t hyperperiod = 0;
   uint8_t i = 0;
 
@@ -158,6 +155,62 @@ interrupt (TIMERA0_VECTOR) TimerIntrpt (void)
     DetermineNextInterruptTime(t->NextRelease);
   }
   
+  for (i = 0; i < NUMTASKS; i++) {
+    Taskp t = &Tasks[i];
+    if (t->NextRelease == NextInterruptTime) {
+      if(t->Flags == 9) {t->Flags = 13;}
+      else{t->Flags = TT;}
+    }
+  }
+ 
+  TACCR0 = NextInterruptTime;
+  
+  //CALL_SCHEDULER;
+  for(i = 0; i<NUMTASKS; i++){
+    Taskp t = &Tasks[i];
+    if(t->Flags == 14){ t->Flags = 0;}
+  }
+  ResumeContext();
+}
+#endif
+
+#ifdef EDF
+interrupt (TIMERA0_VECTOR) TimerIntrpt (void)
+{
+  ContextSwitch();
+
+  uint16_t hyperperiod = 0;
+  uint8_t i = 0;
+
+  for (i = 0; i < NUMTASKS; i++) {
+      Taskp t = &Tasks[i];
+      hyperperiod = lcm(hyperperiod, t->Period);
+    }
+
+  if (((NextInterruptTime / 4) % 1024 == 0 && NextInterruptTime >= 4096) || NextInterruptTime == 0) {
+    for (i = 0; i < NUMTASKS; i++) {
+      Taskp t = &Tasks[i];
+      t->NextRelease += t->Period;
+      t->Remain += t->ExecutionTime;
+      t->Flags = 0;
+      if(i == 0) {t->Flags = 14;}
+    }
+  }
+  
+  Taskp t = &Tasks[0];
+  NextInterruptTime = t->NextRelease;
+
+  for (i = 0; i < NUMTASKS; i++) {
+    Taskp t = &Tasks[i];
+    if (t->Flags == TT || t->Flags == 13) {
+      t->NextRelease += t->Period;
+      t->Remain += t->ExecutionTime;
+      t->Flags = 9;
+    }else if (t->Flags == 9){
+      t->Flags = 0;
+    }
+    DetermineNextInterruptTime(t->NextRelease);
+  }
   
   for (i = 0; i < NUMTASKS; i++) {
     Taskp t = &Tasks[i];
@@ -166,24 +219,16 @@ interrupt (TIMERA0_VECTOR) TimerIntrpt (void)
       else{t->Flags = TT;}
     }
   }
-  // Taskp t = &Tasks[0];
-  // t->NextRelease += t->Period; // set next release time
-  // t->Activated++;
-  // NextInterruptTime = t->NextRelease;
-  /* End of example*/
-
-  /* ---------------------------------------------------------------- */
  
   TACCR0 = NextInterruptTime;
   
-  CALL_SCHEDULER;
-
+  //CALL_SCHEDULER;
   for(i = 0; i<NUMTASKS; i++){
     Taskp t = &Tasks[i];
     if(t->Flags == 14){ t->Flags = 0;}
   }
   ResumeContext();
 }
-
+#endif
 #endif
 
