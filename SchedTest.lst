@@ -258,7 +258,7 @@ SYMBOL TABLE:
 0000013c l       *ABS*	00000000 __RESHI
 0000013e l       *ABS*	00000000 __SUMEXT
 00001100 l     O .bss	00000001 CurrentContext
-00001102 l     O .bss	0000000a Contexts
+00001102 l     O .bss	00000003 Contexts
 00000000 l    df *ABS*	00000000 SchedulerOnline.c
 00000130 l       *ABS*	00000000 __MPY
 00000132 l       *ABS*	00000000 __MPYS
@@ -295,28 +295,28 @@ SYMBOL TABLE:
 0000013a l       *ABS*	00000000 __RESLO
 0000013c l       *ABS*	00000000 __RESHI
 0000013e l       *ABS*	00000000 __SUMEXT
-0000110c l     O .bss	00000004 StartTimes
-00001110 l     O .bss	00000004 Totals
-00001114 l     O .bss	00000001 JobsExecuted
+00001106 l     O .bss	00000004 StartTimes
+0000110a l     O .bss	00000004 Totals
+0000110e l     O .bss	00000001 JobsExecuted
 00000000 g       *ABS*	00000000 __data_size
 00004242 g     F .text	00000084 RegisterTask
 000041dc g     F .text	00000016 ResumeContext
 000041ac g     F .text	00000018 InitClock
-00004476 g     F .text	0000000c StartTracking
-000044ca g       .text	00000000 __udivmodhi4
+0000454a g     F .text	0000000c StartTracking
+0000459e g       .text	00000000 __udivmodhi4
 0000418c g     F .text	0000000a InitLeds
 00004036 g     F .text	00000018 CountDelay
-0000451c g       .text	00000000 _etext
-0000004a g       *ABS*	00000000 __bss_size
-00004498 g     F .text	00000006 AddJobExecution
+000045f0 g       .text	00000000 _etext
+00000044 g       *ABS*	00000000 __bss_size
+0000456c g     F .text	00000006 AddJobExecution
 00004030 g       .text	00000000 _unexpected_1_
 00004030  w      .text	00000000 vector_ffe0
-00001116 g     O .bss	00000001 BusyPrio
-00004412 g     F .text	00000062 Scheduler_P_FP
-00004474 g     F .text	00000002 Scheduler_P_EDF
+00001110 g     O .bss	00000001 BusyPrio
+00004418 g     F .text	00000062 Scheduler_P_FP
+0000447a g     F .text	000000d0 Scheduler_P_EDF
 0000433e g       .text	00000000 vector_ffec
 00004030  w      .text	00000000 vector_fff0
-0000451c g       *ABS*	00000000 __data_load_start
+000045f0 g       *ABS*	00000000 __data_load_start
 00004030 g       .text	00000000 __dtors_end
 00004030  w      .text	00000000 vector_fffc
 00004150 g     F .text	0000003c BlinkYellow
@@ -325,17 +325,17 @@ SYMBOL TABLE:
 00004196 g     F .text	00000010 SetLeds
 0000ffe0 g     O .vectors	00000020 InterruptVectors
 000042c6 g     F .text	00000014 UnRegisterTask
-00001117 g     O .bss	00000001 Pending
+00001111 g     O .bss	00000001 Pending
 000041c4 g     F .text	00000018 ContextSwitch
 00004114 g     F .text	0000003c BlinkGreen
 0000401c  w      .text	00000000 __do_clear_bss
-0000433e g     F .text	000000d4 TimerIntrpt
+0000433e g     F .text	000000da TimerIntrpt
 00004030  w      .text	00000000 vector_ffe2
 00004030  w      .text	00000000 vector_ffe8
 00004034  w      .text	00000000 _unexpected_
-000044e6 g       .text	00000000 __divmodhi4
+000045ba g       .text	00000000 __divmodhi4
 00004030  w      .text	00000000 vector_fffa
-00001118 g     O .bss	00000030 Tasks
+00001112 g     O .bss	00000030 Tasks
 00004000  w      .text	00000000 _reset_vector__
 00004030 g       .text	00000000 __ctors_start
 0000400a  w      .text	00000000 __do_copy_data
@@ -345,20 +345,20 @@ SYMBOL TABLE:
 00004030  w      .text	00000000 vector_fff4
 0000406e g     F .text	0000006a main
 00004030  w      .text	00000000 vector_fff8
-0000449e g     F .text	0000002c PrintResults
+00004572 g     F .text	0000002c PrintResults
 00004030  w      .text	00000000 vector_fff2
 000040d8 g     F .text	0000003c BlinkRed
 00010000 g       .vectors	00000000 _vectors_end
 00004030  w      .text	00000000 vector_ffe6
 000041f2 g     F .text	00000006 IntDisable
-00001148 g     O .bss	00000002 NextInterruptTime
+00001142 g     O .bss	00000002 NextInterruptTime
 00004000  w      .text	00000000 __init_stack
 000042fa g     F .text	00000044 lcm
 00004030 g       .text	00000000 __dtors_start
 00004030 g       .text	00000000 __ctors_end
 00003900 g       *ABS*	00000000 __stack
 00001100 g       .bss	00000000 _edata
-0000114a g       .bss	00000000 _end
+00001144 g       .bss	00000000 _end
 00004030  w      .text	00000000 vector_fff6
 000042da g     F .text	00000020 gcd
 00004004  w      .text	00000000 __low_level_init
@@ -366,7 +366,7 @@ SYMBOL TABLE:
 000041fc g     F .text	00000046 InitTasks
 00001100 g       .bss	00000000 __data_start
 00004030  w      .text	00000000 vector_ffea
-00004482 g     F .text	00000016 StopTracking
+00004556 g     F .text	00000016 StopTracking
 000041f8 g     F .text	00000004 RestoreSW
 
 
@@ -385,12 +385,12 @@ Disassembly of section .text:
     400e:	0f 93       	tst	r15		
     4010:	05 24       	jz	$+12     	;abs 0x401c
     4012:	2f 83       	decd	r15		
-    4014:	9f 4f 1c 45 	mov	17692(r15),4352(r15);0x451c(r15), 0x1100(r15)
+    4014:	9f 4f f0 45 	mov	17904(r15),4352(r15);0x45f0(r15), 0x1100(r15)
     4018:	00 11 
     401a:	fb 23       	jnz	$-8      	;abs 0x4012
 
 0000401c <__do_clear_bss>:
-    401c:	3f 40 4a 00 	mov	#74,	r15	;#0x004a
+    401c:	3f 40 44 00 	mov	#68,	r15	;#0x0044
     4020:	0f 93       	tst	r15		
     4022:	04 24       	jz	$+10     	;abs 0x402c
     4024:	1f 83       	dec	r15		
@@ -476,8 +476,8 @@ int main(void)
 { 
     406e:	31 40 00 39 	mov	#14592,	r1	;#0x3900
   BusyPrio = NUMTASKS; // set the BusyPrio to a number greater than the largest task num
-    4072:	f2 40 03 00 	mov.b	#3,	&0x1116	;#0x0003
-    4076:	16 11 
+    4072:	f2 40 03 00 	mov.b	#3,	&0x1110	;#0x0003
+    4076:	10 11 
 
   WDTCTL = WDTPW + WDTHOLD;       // Stop watchdog timer 
     4078:	b2 40 80 5a 	mov	#23168,	&0x0120	;#0x5a80
@@ -831,7 +831,7 @@ void InitTasks (void)
   do { 
     Taskp t = &Tasks[i];
     t->Flags = t->Activated = t->Invoked = 0;
-    41fc:	3f 40 3f 11 	mov	#4415,	r15	;#0x113f
+    41fc:	3f 40 39 11 	mov	#4409,	r15	;#0x1139
     4200:	cf 43 00 00 	mov.b	#0,	0(r15)	;r3 As==00, 0x0000(r15)
     4204:	0e 4f       	mov	r15,	r14	
     4206:	3e 53       	add	#-1,	r14	;r3 As==11
@@ -917,7 +917,7 @@ uint16_t IntDisable (void)
     4276:	0b 5b       	rla	r11		
     4278:	0b 5b       	rla	r11		
     427a:	0b 5b       	rla	r11		
-    427c:	3b 50 18 11 	add	#4376,	r11	;#0x1118
+    427c:	3b 50 12 11 	add	#4370,	r11	;#0x1112
   if (t->Flags) rtc = E_BUSY; 
     4280:	1a 4b 08 00 	mov	8(r11),	r10	;0x0008(r11)
     4284:	0a 93       	tst	r10		
@@ -986,7 +986,7 @@ uint8_t UnRegisterTask (uint8_t t)
     42cc:	0f 5f       	rla	r15		
     42ce:	0f 5f       	rla	r15		
     42d0:	0f 5f       	rla	r15		
-    42d2:	8f 43 18 11 	mov	#0,	4376(r15);r3 As==00, 0x1118(r15)
+    42d2:	8f 43 12 11 	mov	#0,	4370(r15);r3 As==00, 0x1112(r15)
   return (E_SUCCESS);
 }  
     42d6:	4f 43       	clr.b	r15		
@@ -1011,7 +1011,7 @@ int gcd(int a, int b) {
   return gcd(b, a % b);
     42e6:	0c 4f       	mov	r15,	r12	
     42e8:	0a 4e       	mov	r14,	r10	
-    42ea:	b0 12 e6 44 	call	#0x44e6	
+    42ea:	b0 12 ba 45 	call	#0x45ba	
     42ee:	0f 49       	mov	r9,	r15	
     42f0:	f7 3f       	jmp	$-16     	;abs 0x42e0
 }
@@ -1044,7 +1044,7 @@ int gcd(int a, int b) {
   return gcd(b, a % b);
     430c:	0c 4a       	mov	r10,	r12	
     430e:	0a 49       	mov	r9,	r10	
-    4310:	b0 12 e6 44 	call	#0x44e6	
+    4310:	b0 12 ba 45 	call	#0x45ba	
     4314:	0a 49       	mov	r9,	r10	
     4316:	09 4e       	mov	r14,	r9	
     4318:	f7 3f       	jmp	$-16     	;abs 0x4308
@@ -1055,7 +1055,7 @@ int gcd(int a, int b) {
     4324:	82 4f 38 01 	mov	r15,	&0x0138	
     4328:	1c 42 3a 01 	mov	&0x013a,r12	
     432c:	32 41       	pop	r2		
-    432e:	b0 12 e6 44 	call	#0x44e6	
+    432e:	b0 12 ba 45 	call	#0x45ba	
 }
 
 // for calculating hyper period
@@ -1090,17 +1090,17 @@ interrupt (TIMERA0_VECTOR) TimerIntrpt (void)
   // uint16_t hyperperiod = 0;
   uint8_t i = 0;
   uint16_t oldNextInterruptTime = NextInterruptTime; // This is the current time when interrupt occurrs
-    4354:	18 42 48 11 	mov	&0x1148,r8	
+    4354:	18 42 42 11 	mov	&0x1142,r8	
   // for (i = 0; i < NUMTASKS; i++) {
   //   Taskp t = &Tasks[i];
   //   hyperperiod = lcm(hyperperiod, t->Period);
   // }
 
-  if (NextInterruptTime % (1024*4) == 0) {
+  if (oldNextInterruptTime % (1024*4) == 0) {
     4358:	07 48       	mov	r8,	r7	
     435a:	37 f0 ff 0f 	and	#4095,	r7	;#0x0fff
     435e:	04 24       	jz	$+10     	;abs 0x4368
-    4360:	3f 40 18 11 	mov	#4376,	r15	;#0x1118
+    4360:	3f 40 12 11 	mov	#4370,	r15	;#0x1112
 // for calculating hyper period
 int lcm(int a, int b) {
   return (a * b) / gcd(a, b);
@@ -1109,10 +1109,10 @@ int lcm(int a, int b) {
 interrupt (TIMERA0_VECTOR) TimerIntrpt (void)
     4364:	0e 4f       	mov	r15,	r14	
     4366:	0f 3c       	jmp	$+32     	;abs 0x4386
-    4368:	3f 40 18 11 	mov	#4376,	r15	;#0x1118
+    4368:	3f 40 12 11 	mov	#4370,	r15	;#0x1112
   // }
 
-  if (NextInterruptTime % (1024*4) == 0) {
+  if (oldNextInterruptTime % (1024*4) == 0) {
     for (i = 0; i < NUMTASKS; i++) {
       Taskp t = &Tasks[i];
       t->NextRelease += t->Period;
@@ -1127,9 +1127,9 @@ interrupt (TIMERA0_VECTOR) TimerIntrpt (void)
   //   hyperperiod = lcm(hyperperiod, t->Period);
   // }
 
-  if (NextInterruptTime % (1024*4) == 0) {
+  if (oldNextInterruptTime % (1024*4) == 0) {
     for (i = 0; i < NUMTASKS; i++) {
-    437e:	3f 90 48 11 	cmp	#4424,	r15	;#0x1148
+    437e:	3f 90 42 11 	cmp	#4418,	r15	;#0x1142
     4382:	f4 23       	jnz	$-22     	;abs 0x436c
     4384:	ed 3f       	jmp	$-36     	;abs 0x4360
   }
@@ -1152,7 +1152,7 @@ interrupt (TIMERA0_VECTOR) TimerIntrpt (void)
 
 
   for (i = 0; i < NUMTASKS; i++) {
-    439a:	3e 90 48 11 	cmp	#4424,	r14	;#0x1148
+    439a:	3e 90 42 11 	cmp	#4418,	r14	;#0x1142
     439e:	f3 23       	jnz	$-24     	;abs 0x4386
       t->FlagNextInterrupt = 0;
     }
@@ -1160,25 +1160,25 @@ interrupt (TIMERA0_VECTOR) TimerIntrpt (void)
 
   Taskp t = &Tasks[0];
   NextInterruptTime = t->NextRelease;
-    43a0:	1e 42 18 11 	mov	&0x1118,r14	
+    43a0:	1e 42 12 11 	mov	&0x1112,r14	
 
 
   for (i = 0; i < NUMTASKS; i++) {
     Taskp t = &Tasks[i];
     DetermineNextInterruptTime(t->NextRelease);
-    43a4:	1d 42 18 11 	mov	&0x1118,r13	
+    43a4:	1d 42 12 11 	mov	&0x1112,r13	
     43a8:	0e 9d       	cmp	r13,	r14	
     43aa:	01 2c       	jc	$+4      	;abs 0x43ae
     43ac:	0d 4e       	mov	r14,	r13	
-    43ae:	1e 42 28 11 	mov	&0x1128,r14	
+    43ae:	1e 42 22 11 	mov	&0x1122,r14	
     43b2:	0d 9e       	cmp	r14,	r13	
     43b4:	01 2c       	jc	$+4      	;abs 0x43b8
     43b6:	0e 4d       	mov	r13,	r14	
-    43b8:	19 42 38 11 	mov	&0x1138,r9	
+    43b8:	19 42 32 11 	mov	&0x1132,r9	
     43bc:	0e 99       	cmp	r9,	r14	
     43be:	01 2c       	jc	$+4      	;abs 0x43c2
     43c0:	09 4e       	mov	r14,	r9	
-    43c2:	82 49 48 11 	mov	r9,	&0x1148	
+    43c2:	82 49 42 11 	mov	r9,	&0x1142	
   }
 
   
@@ -1193,249 +1193,403 @@ interrupt (TIMERA0_VECTOR) TimerIntrpt (void)
     if ((oldNextInterruptTime % t->Period == 0) && (oldNextInterruptTime % (1024*4) != 0)) {
     43ce:	0c 48       	mov	r8,	r12	
     43d0:	1a 4f 04 00 	mov	4(r15),	r10	;0x0004(r15)
-    43d4:	b0 12 ca 44 	call	#0x44ca	
+    43d4:	b0 12 9e 45 	call	#0x459e	
     43d8:	0e 93       	tst	r14		
-    43da:	04 20       	jnz	$+10     	;abs 0x43e4
+    43da:	07 20       	jnz	$+16     	;abs 0x43ea
     43dc:	07 9e       	cmp	r14,	r7	
-    43de:	02 24       	jz	$+6      	;abs 0x43e4
+    43de:	05 24       	jz	$+12     	;abs 0x43ea
       t->Activated++;
     43e0:	df 53 06 00 	inc.b	6(r15)		;0x0006(r15)
-    43e4:	3f 50 10 00 	add	#16,	r15	;#0x0010
+      t->NextPendingDeadline += t->Period;
+    43e4:	9f 5f 04 00 	add	4(r15),	2(r15)	;0x0004(r15), 0x0002(r15)
+    43e8:	02 00 
+    43ea:	3f 50 10 00 	add	#16,	r15	;#0x0010
     Taskp t = &Tasks[i];
     DetermineNextInterruptTime(t->NextRelease);
   }
 
   
   for (i = 0; i < NUMTASKS; i++) {
-    43e8:	3f 90 48 11 	cmp	#4424,	r15	;#0x1148
-    43ec:	ec 23       	jnz	$-38     	;abs 0x43c6
+    43ee:	3f 90 42 11 	cmp	#4418,	r15	;#0x1142
+    43f2:	e9 23       	jnz	$-44     	;abs 0x43c6
   /* End of example*/
 
   /* ---------------------------------------------------------------- */
  
 
   TACCR0 = NextInterruptTime;
-    43ee:	82 49 72 01 	mov	r9,	&0x0172	
+    43f4:	82 49 72 01 	mov	r9,	&0x0172	
 
   CALL_SCHEDULER;
-    43f2:	3f 40 18 11 	mov	#4376,	r15	;#0x1118
-    43f6:	b0 12 12 44 	call	#0x4412	
+    43f8:	3f 40 12 11 	mov	#4370,	r15	;#0x1112
+    43fc:	b0 12 7a 44 	call	#0x447a	
 
   ResumeContext();
-    43fa:	b0 12 dc 41 	call	#0x41dc	
+    4400:	b0 12 dc 41 	call	#0x41dc	
 }
-    43fe:	37 41       	pop	r7		
-    4400:	38 41       	pop	r8		
-    4402:	39 41       	pop	r9		
-    4404:	3a 41       	pop	r10		
-    4406:	3b 41       	pop	r11		
-    4408:	3c 41       	pop	r12		
-    440a:	3d 41       	pop	r13		
-    440c:	3e 41       	pop	r14		
-    440e:	3f 41       	pop	r15		
-    4410:	00 13       	reti			
+    4404:	37 41       	pop	r7		
+    4406:	38 41       	pop	r8		
+    4408:	39 41       	pop	r9		
+    440a:	3a 41       	pop	r10		
+    440c:	3b 41       	pop	r11		
+    440e:	3c 41       	pop	r12		
+    4410:	3d 41       	pop	r13		
+    4412:	3e 41       	pop	r14		
+    4414:	3f 41       	pop	r15		
+    4416:	00 13       	reti			
 
-00004412 <Scheduler_P_FP>:
+00004418 <Scheduler_P_FP>:
   /* ---------------------------------------------------------------- */
 
 }
 
 void Scheduler_P_FP (Task Tasks[])
 { 
-    4412:	0b 12       	push	r11		
-    4414:	0a 12       	push	r10		
-    4416:	09 12       	push	r9		
-    4418:	0a 4f       	mov	r15,	r10	
+    4418:	0b 12       	push	r11		
+    441a:	0a 12       	push	r10		
+    441c:	09 12       	push	r9		
+    441e:	0a 4f       	mov	r15,	r10	
   /* ----------------------- INSERT CODE HERE ----------------------- */
 
   /* Super simple, single task example */
 
   uint8_t oldBP = BusyPrio; // Set BusyPrio as the priority of the currently running task (the one that was executing just before the scheduler is called)
-    441a:	59 42 16 11 	mov.b	&0x1116,r9	
+    4420:	59 42 10 11 	mov.b	&0x1110,r9	
 
   for(BusyPrio = 0; BusyPrio < oldBP; BusyPrio++) {
-    441e:	c2 43 16 11 	mov.b	#0,	&0x1116	;r3 As==00
-    4422:	21 3c       	jmp	$+68     	;abs 0x4466
+    4424:	c2 43 10 11 	mov.b	#0,	&0x1110	;r3 As==00
+    4428:	21 3c       	jmp	$+68     	;abs 0x446c
     Taskp t = &Tasks[BusyPrio];
-    4424:	5b 42 16 11 	mov.b	&0x1116,r11	
-    4428:	7b f3       	and.b	#-1,	r11	;r3 As==11
-    442a:	0b 5b       	rla	r11		
-    442c:	0b 5b       	rla	r11		
-    442e:	0b 5b       	rla	r11		
+    442a:	5b 42 10 11 	mov.b	&0x1110,r11	
+    442e:	7b f3       	and.b	#-1,	r11	;r3 As==11
     4430:	0b 5b       	rla	r11		
-    4432:	0b 5a       	add	r10,	r11	
+    4432:	0b 5b       	rla	r11		
+    4434:	0b 5b       	rla	r11		
+    4436:	0b 5b       	rla	r11		
+    4438:	0b 5a       	add	r10,	r11	
     while ((t->Activated != t->Invoked) && (t->Flags & TRIGGERED))
-    4434:	0d 3c       	jmp	$+28     	;abs 0x4450
+    443a:	0d 3c       	jmp	$+28     	;abs 0x4456
     {
       _EINT(); 
-    4436:	32 d2       	eint			
+    443c:	32 d2       	eint			
 
 static void ExecuteTask (Taskp t)
 {
   /* ----------------------- INSERT CODE HERE ----------------------- */
 
   t->Invoked++;
-    4438:	5e 53       	inc.b	r14		
-    443a:	cb 4e 07 00 	mov.b	r14,	7(r11)	;0x0007(r11)
+    443e:	5e 53       	inc.b	r14		
+    4440:	cb 4e 07 00 	mov.b	r14,	7(r11)	;0x0007(r11)
   t->Taskf(t->ExecutionTime); // execute task
-    443e:	1f 4b 0a 00 	mov	10(r11),r15	;0x000a(r11)
-    4442:	9b 12 0c 00 	call	12(r11)	;0x000c(r11)
+    4444:	1f 4b 0a 00 	mov	10(r11),r15	;0x000a(r11)
+    4448:	9b 12 0c 00 	call	12(r11)	;0x000c(r11)
     Taskp t = &Tasks[BusyPrio];
     while ((t->Activated != t->Invoked) && (t->Flags & TRIGGERED))
     {
       _EINT(); 
       ExecuteTask(t);
       _DINT();
-    4446:	32 c2       	dint			
+    444c:	32 c2       	dint			
       t->Activated = t->Invoked;
-    4448:	5f 4b 07 00 	mov.b	7(r11),	r15	;0x0007(r11)
-    444c:	cb 4f 06 00 	mov.b	r15,	6(r11)	;0x0006(r11)
+    444e:	5f 4b 07 00 	mov.b	7(r11),	r15	;0x0007(r11)
+    4452:	cb 4f 06 00 	mov.b	r15,	6(r11)	;0x0006(r11)
 
   uint8_t oldBP = BusyPrio; // Set BusyPrio as the priority of the currently running task (the one that was executing just before the scheduler is called)
 
   for(BusyPrio = 0; BusyPrio < oldBP; BusyPrio++) {
     Taskp t = &Tasks[BusyPrio];
     while ((t->Activated != t->Invoked) && (t->Flags & TRIGGERED))
-    4450:	5e 4b 07 00 	mov.b	7(r11),	r14	;0x0007(r11)
-    4454:	cb 9e 06 00 	cmp.b	r14,	6(r11)	;0x0006(r11)
-    4458:	04 24       	jz	$+10     	;abs 0x4462
-    445a:	bb b0 40 00 	bit	#64,	8(r11)	;#0x0040, 0x0008(r11)
-    445e:	08 00 
-    4460:	ea 23       	jnz	$-42     	;abs 0x4436
+    4456:	5e 4b 07 00 	mov.b	7(r11),	r14	;0x0007(r11)
+    445a:	cb 9e 06 00 	cmp.b	r14,	6(r11)	;0x0006(r11)
+    445e:	04 24       	jz	$+10     	;abs 0x4468
+    4460:	bb b0 40 00 	bit	#64,	8(r11)	;#0x0040, 0x0008(r11)
+    4464:	08 00 
+    4466:	ea 23       	jnz	$-42     	;abs 0x443c
 
   /* Super simple, single task example */
 
   uint8_t oldBP = BusyPrio; // Set BusyPrio as the priority of the currently running task (the one that was executing just before the scheduler is called)
 
   for(BusyPrio = 0; BusyPrio < oldBP; BusyPrio++) {
-    4462:	d2 53 16 11 	inc.b	&0x1116	
-    4466:	c2 99 16 11 	cmp.b	r9,	&0x1116	
-    446a:	dc 2b       	jnc	$-70     	;abs 0x4424
+    4468:	d2 53 10 11 	inc.b	&0x1110	
+    446c:	c2 99 10 11 	cmp.b	r9,	&0x1110	
+    4470:	dc 2b       	jnc	$-70     	;abs 0x442a
   //   ExecuteTask(t);
   // }
   /* End of example*/
 
   /* ---------------------------------------------------------------- */
 }
-    446c:	39 41       	pop	r9		
-    446e:	3a 41       	pop	r10		
-    4470:	3b 41       	pop	r11		
-    4472:	30 41       	ret			
+    4472:	39 41       	pop	r9		
+    4474:	3a 41       	pop	r10		
+    4476:	3b 41       	pop	r11		
+    4478:	30 41       	ret			
 
-00004474 <Scheduler_P_EDF>:
-void Scheduler_P_EDF (Task Tasks[])
-{ 
-  /* insert code */
-  /* Use ExecuteTask function to execute a task */
+0000447a <Scheduler_P_EDF>:
+  t->Taskf(t->ExecutionTime); // execute task
   /* insert code */
 }
-    4474:	30 41       	ret			
 
-00004476 <StartTracking>:
+void Scheduler_P_EDF (Task Tasks[])
+{ 
+    447a:	0b 12       	push	r11		
+    447c:	0a 12       	push	r10		
+    447e:	09 12       	push	r9		
+    4480:	08 12       	push	r8		
+    4482:	07 12       	push	r7		
+    4484:	04 12       	push	r4		
+    4486:	31 50 f6 ff 	add	#-10,	r1	;#0xfff6
+    448a:	0a 4f       	mov	r15,	r10	
+  /* insert code */
+  /* Use ExecuteTask function to execute a task */
+  uint8_t oldBP = BusyPrio; // Set BusyPrio as the priority of the currently running task (the one that was executing just before the scheduler is called)
+    448c:	59 42 10 11 	mov.b	&0x1110,r9	
+  uint8_t i = 0;
+  uint8_t new_prio[10];
+  uint8_t a = 0;
+  uint8_t b = 0;
+  for(i = 0; i < NUMTASKS; i++){
+    new_prio[i] = i;
+    4490:	c1 43 00 00 	mov.b	#0,	0(r1)	;r3 As==00, 0x0000(r1)
+    4494:	d1 43 01 00 	mov.b	#1,	1(r1)	;r3 As==01, 0x0001(r1)
+    4498:	e1 43 02 00 	mov.b	#2,	2(r1)	;r3 As==10, 0x0002(r1)
+    449c:	0e 41       	mov	r1,	r14	
+    449e:	2e 53       	incd	r14		
+    44a0:	0d 4f       	mov	r15,	r13	
+    44a2:	3d 50 20 00 	add	#32,	r13	;#0x0020
+  t->Invoked++;
+  t->Taskf(t->ExecutionTime); // execute task
+  /* insert code */
+}
+
+void Scheduler_P_EDF (Task Tasks[])
+    44a6:	04 41       	mov	r1,	r4	
+    44a8:	0b 4d       	mov	r13,	r11	
+    44aa:	3b 50 f0 ff 	add	#-16,	r11	;#0xfff0
+    new_prio[i] = i;
+  }
+  for(i = NUMTASKS - 1; i > 0; i--){
+    Taskp t = &Tasks[i];
+    Taskp t1 = &Tasks[i - 1];
+    a = new_prio[i];
+    44ae:	6f 4e       	mov.b	@r14,	r15	
+    b = new_prio[i - 1];
+    44b0:	5c 4e ff ff 	mov.b	-1(r14),r12	;0xffff(r14)
+    if(t->NextPendingDeadline < t1->NextPendingDeadline){
+    44b4:	17 4d 02 00 	mov	2(r13),	r7	;0x0002(r13)
+    44b8:	18 4b 02 00 	mov	2(r11),	r8	;0x0002(r11)
+    44bc:	07 98       	cmp	r8,	r7	
+    44be:	0a 28       	jnc	$+22     	;abs 0x44d4
+      new_prio[i] = b;
+      new_prio[i - 1] = a;
+    }else if(t->NextPendingDeadline == t1->NextPendingDeadline){
+    44c0:	18 4d 02 00 	mov	2(r13),	r8	;0x0002(r13)
+    44c4:	1b 4b 02 00 	mov	2(r11),	r11	;0x0002(r11)
+    44c8:	08 9b       	cmp	r11,	r8	
+    44ca:	08 20       	jnz	$+18     	;abs 0x44dc
+      if(t->Prio < t1->Prio){
+    44cc:	dd 9d fe ff 	cmp.b	-2(r13),14(r13)	;0xfffe(r13), 0x000e(r13)
+    44d0:	0e 00 
+    44d2:	04 2c       	jc	$+10     	;abs 0x44dc
+        new_prio[i] = b;
+    44d4:	ce 4c 00 00 	mov.b	r12,	0(r14)	;0x0000(r14)
+        new_prio[i - 1] = a;
+    44d8:	ce 4f ff ff 	mov.b	r15,	-1(r14)	;0xffff(r14)
+    44dc:	3e 53       	add	#-1,	r14	;r3 As==11
+    44de:	3d 50 f0 ff 	add	#-16,	r13	;#0xfff0
+  uint8_t a = 0;
+  uint8_t b = 0;
+  for(i = 0; i < NUMTASKS; i++){
+    new_prio[i] = i;
+  }
+  for(i = NUMTASKS - 1; i > 0; i--){
+    44e2:	0e 94       	cmp	r4,	r14	
+    44e4:	e1 23       	jnz	$-60     	;abs 0x44a8
+        new_prio[i - 1] = a;
+      }
+    }
+  }
+
+  for(BusyPrio = 0; BusyPrio < oldBP; BusyPrio++) {
+    44e6:	c2 43 10 11 	mov.b	#0,	&0x1110	;r3 As==00
+    44ea:	23 3c       	jmp	$+72     	;abs 0x4532
+    Taskp t = &Tasks[new_prio[BusyPrio]];
+    44ec:	5f 42 10 11 	mov.b	&0x1110,r15	
+    44f0:	7f f3       	and.b	#-1,	r15	;r3 As==11
+    44f2:	0f 51       	add	r1,	r15	
+    44f4:	6b 4f       	mov.b	@r15,	r11	
+    44f6:	0b 5b       	rla	r11		
+    44f8:	0b 5b       	rla	r11		
+    44fa:	0b 5b       	rla	r11		
+    44fc:	0b 5b       	rla	r11		
+    44fe:	0b 5a       	add	r10,	r11	
+    while ((t->Activated != t->Invoked) && (t->Flags & TRIGGERED))
+    4500:	0d 3c       	jmp	$+28     	;abs 0x451c
+    {
+      _EINT(); 
+    4502:	32 d2       	eint			
+#include "Led.h"
+
+static void ExecuteTask (Taskp t)
+{
+  /* insert code */
+  t->Invoked++;
+    4504:	5f 53       	inc.b	r15		
+    4506:	cb 4f 07 00 	mov.b	r15,	7(r11)	;0x0007(r11)
+  t->Taskf(t->ExecutionTime); // execute task
+    450a:	1f 4b 0a 00 	mov	10(r11),r15	;0x000a(r11)
+    450e:	9b 12 0c 00 	call	12(r11)	;0x000c(r11)
+    Taskp t = &Tasks[new_prio[BusyPrio]];
+    while ((t->Activated != t->Invoked) && (t->Flags & TRIGGERED))
+    {
+      _EINT(); 
+      ExecuteTask(t);
+      _DINT();
+    4512:	32 c2       	dint			
+      t->Activated = t->Invoked;
+    4514:	5f 4b 07 00 	mov.b	7(r11),	r15	;0x0007(r11)
+    4518:	cb 4f 06 00 	mov.b	r15,	6(r11)	;0x0006(r11)
+    }
+  }
+
+  for(BusyPrio = 0; BusyPrio < oldBP; BusyPrio++) {
+    Taskp t = &Tasks[new_prio[BusyPrio]];
+    while ((t->Activated != t->Invoked) && (t->Flags & TRIGGERED))
+    451c:	5f 4b 07 00 	mov.b	7(r11),	r15	;0x0007(r11)
+    4520:	cb 9f 06 00 	cmp.b	r15,	6(r11)	;0x0006(r11)
+    4524:	04 24       	jz	$+10     	;abs 0x452e
+    4526:	bb b0 40 00 	bit	#64,	8(r11)	;#0x0040, 0x0008(r11)
+    452a:	08 00 
+    452c:	ea 23       	jnz	$-42     	;abs 0x4502
+        new_prio[i - 1] = a;
+      }
+    }
+  }
+
+  for(BusyPrio = 0; BusyPrio < oldBP; BusyPrio++) {
+    452e:	d2 53 10 11 	inc.b	&0x1110	
+    4532:	c2 99 10 11 	cmp.b	r9,	&0x1110	
+    4536:	da 2b       	jnc	$-74     	;abs 0x44ec
+      t->Activated = t->Invoked;
+    }
+    
+  }
+  /* insert code */
+}
+    4538:	31 50 0a 00 	add	#10,	r1	;#0x000a
+    453c:	34 41       	pop	r4		
+    453e:	37 41       	pop	r7		
+    4540:	38 41       	pop	r8		
+    4542:	39 41       	pop	r9		
+    4544:	3a 41       	pop	r10		
+    4546:	3b 41       	pop	r11		
+    4548:	30 41       	ret			
+
+0000454a <StartTracking>:
 static uint16_t Totals[TT_MAX];
 static uint8_t JobsExecuted;
 
 void StartTracking(uint8_t index)
 {
     StartTimes[index] = TAR;
-    4476:	7f f3       	and.b	#-1,	r15	;r3 As==11
-    4478:	0f 5f       	rla	r15		
-    447a:	9f 42 70 01 	mov	&0x0170,4364(r15);0x110c(r15)
-    447e:	0c 11 
+    454a:	7f f3       	and.b	#-1,	r15	;r3 As==11
+    454c:	0f 5f       	rla	r15		
+    454e:	9f 42 70 01 	mov	&0x0170,4358(r15);0x1106(r15)
+    4552:	06 11 
 }
-    4480:	30 41       	ret			
+    4554:	30 41       	ret			
 
-00004482 <StopTracking>:
+00004556 <StopTracking>:
 
 void StopTracking(uint8_t index)
 {
     Totals[index] += TAR - StartTimes[index];
-    4482:	7f f3       	and.b	#-1,	r15	;r3 As==11
-    4484:	0f 5f       	rla	r15		
-    4486:	1e 42 70 01 	mov	&0x0170,r14	
-    448a:	1e 5f 10 11 	add	4368(r15),r14	;0x1110(r15)
-    448e:	1e 8f 0c 11 	sub	4364(r15),r14	;0x110c(r15)
-    4492:	8f 4e 10 11 	mov	r14,	4368(r15);0x1110(r15)
+    4556:	7f f3       	and.b	#-1,	r15	;r3 As==11
+    4558:	0f 5f       	rla	r15		
+    455a:	1e 42 70 01 	mov	&0x0170,r14	
+    455e:	1e 5f 0a 11 	add	4362(r15),r14	;0x110a(r15)
+    4562:	1e 8f 06 11 	sub	4358(r15),r14	;0x1106(r15)
+    4566:	8f 4e 0a 11 	mov	r14,	4362(r15);0x110a(r15)
 }
-    4496:	30 41       	ret			
+    456a:	30 41       	ret			
 
-00004498 <AddJobExecution>:
+0000456c <AddJobExecution>:
 
 void AddJobExecution()
 {
     JobsExecuted++;
-    4498:	d2 53 14 11 	inc.b	&0x1114	
+    456c:	d2 53 0e 11 	inc.b	&0x110e	
 }
-    449c:	30 41       	ret			
+    4570:	30 41       	ret			
 
-0000449e <PrintResults>:
+00004572 <PrintResults>:
 
 void PrintResults()
 {
     P1OUT = Totals[TT_TIMER_INTERRUPT] & 0xFF;
-    449e:	3e 40 10 11 	mov	#4368,	r14	;#0x1110
-    44a2:	2d 4e       	mov	@r14,	r13	
-    44a4:	c2 4d 21 00 	mov.b	r13,	&0x0021	
+    4572:	3e 40 0a 11 	mov	#4362,	r14	;#0x110a
+    4576:	2d 4e       	mov	@r14,	r13	
+    4578:	c2 4d 21 00 	mov.b	r13,	&0x0021	
     P2OUT = Totals[TT_TIMER_INTERRUPT] >> 8;
-    44a8:	3f 4e       	mov	@r14+,	r15	
-    44aa:	0f 4d       	mov	r13,	r15	
-    44ac:	8f 10       	swpb	r15		
-    44ae:	7f f3       	and.b	#-1,	r15	;r3 As==11
-    44b0:	c2 4f 29 00 	mov.b	r15,	&0x0029	
+    457c:	3f 4e       	mov	@r14+,	r15	
+    457e:	0f 4d       	mov	r13,	r15	
+    4580:	8f 10       	swpb	r15		
+    4582:	7f f3       	and.b	#-1,	r15	;r3 As==11
+    4584:	c2 4f 29 00 	mov.b	r15,	&0x0029	
 
     P3OUT = Totals[TT_SCHEDULER] & 0xFF;
-    44b4:	2f 4e       	mov	@r14,	r15	
-    44b6:	c2 4f 19 00 	mov.b	r15,	&0x0019	
+    4588:	2f 4e       	mov	@r14,	r15	
+    458a:	c2 4f 19 00 	mov.b	r15,	&0x0019	
     P4OUT = Totals[TT_SCHEDULER] >> 8;
-    44ba:	8f 10       	swpb	r15		
-    44bc:	7f f3       	and.b	#-1,	r15	;r3 As==11
-    44be:	c2 4f 1d 00 	mov.b	r15,	&0x001d	
+    458e:	8f 10       	swpb	r15		
+    4590:	7f f3       	and.b	#-1,	r15	;r3 As==11
+    4592:	c2 4f 1d 00 	mov.b	r15,	&0x001d	
 
     P6OUT = JobsExecuted;
-    44c2:	d2 42 14 11 	mov.b	&0x1114,&0x0035	
-    44c6:	35 00 
-    44c8:	30 41       	ret			
+    4596:	d2 42 0e 11 	mov.b	&0x110e,&0x0035	
+    459a:	35 00 
+    459c:	30 41       	ret			
 
-000044ca <__udivmodhi4>:
-    44ca:	0e ee       	xor	r14,	r14	
-    44cc:	3b 40 11 00 	mov	#17,	r11	;#0x0011
-    44d0:	05 3c       	jmp	$+12     	;abs 0x44dc
-    44d2:	0d 10       	rrc	r13		
-    44d4:	0e 6e       	rlc	r14		
-    44d6:	0e 9a       	cmp	r10,	r14	
-    44d8:	01 28       	jnc	$+4      	;abs 0x44dc
-    44da:	0e 8a       	sub	r10,	r14	
-    44dc:	0c 6c       	rlc	r12		
-    44de:	0d 6d       	rlc	r13		
-    44e0:	1b 83       	dec	r11		
-    44e2:	f7 23       	jnz	$-16     	;abs 0x44d2
-    44e4:	30 41       	ret			
+0000459e <__udivmodhi4>:
+    459e:	0e ee       	xor	r14,	r14	
+    45a0:	3b 40 11 00 	mov	#17,	r11	;#0x0011
+    45a4:	05 3c       	jmp	$+12     	;abs 0x45b0
+    45a6:	0d 10       	rrc	r13		
+    45a8:	0e 6e       	rlc	r14		
+    45aa:	0e 9a       	cmp	r10,	r14	
+    45ac:	01 28       	jnc	$+4      	;abs 0x45b0
+    45ae:	0e 8a       	sub	r10,	r14	
+    45b0:	0c 6c       	rlc	r12		
+    45b2:	0d 6d       	rlc	r13		
+    45b4:	1b 83       	dec	r11		
+    45b6:	f7 23       	jnz	$-16     	;abs 0x45a6
+    45b8:	30 41       	ret			
 
-000044e6 <__divmodhi4>:
-    44e6:	0d 43       	clr	r13		
-    44e8:	3c b0 00 80 	bit	#-32768,r12	;#0x8000
-    44ec:	03 28       	jnc	$+8      	;abs 0x44f4
-    44ee:	3c e3       	inv	r12		
-    44f0:	1c 53       	inc	r12		
-    44f2:	2d d2       	bis	#4,	r13	;r2 As==10
-    44f4:	3a b0 00 80 	bit	#-32768,r10	;#0x8000
-    44f8:	03 28       	jnc	$+8      	;abs 0x4500
-    44fa:	3a e3       	inv	r10		
-    44fc:	1a 53       	inc	r10		
-    44fe:	3d d2       	bis	#8,	r13	;r2 As==11
-    4500:	b0 12 ca 44 	call	#0x44ca	
-    4504:	0d 10       	rrc	r13		
-    4506:	2d b2       	bit	#4,	r13	;r2 As==10
-    4508:	04 28       	jnc	$+10     	;abs 0x4512
-    450a:	3e e3       	inv	r14		
-    450c:	1e 53       	inc	r14		
-    450e:	3c e3       	inv	r12		
-    4510:	1c 53       	inc	r12		
-    4512:	3d b2       	bit	#8,	r13	;r2 As==11
-    4514:	02 28       	jnc	$+6      	;abs 0x451a
-    4516:	3c e3       	inv	r12		
-    4518:	1c 53       	inc	r12		
-    451a:	30 41       	ret			
+000045ba <__divmodhi4>:
+    45ba:	0d 43       	clr	r13		
+    45bc:	3c b0 00 80 	bit	#-32768,r12	;#0x8000
+    45c0:	03 28       	jnc	$+8      	;abs 0x45c8
+    45c2:	3c e3       	inv	r12		
+    45c4:	1c 53       	inc	r12		
+    45c6:	2d d2       	bis	#4,	r13	;r2 As==10
+    45c8:	3a b0 00 80 	bit	#-32768,r10	;#0x8000
+    45cc:	03 28       	jnc	$+8      	;abs 0x45d4
+    45ce:	3a e3       	inv	r10		
+    45d0:	1a 53       	inc	r10		
+    45d2:	3d d2       	bis	#8,	r13	;r2 As==11
+    45d4:	b0 12 9e 45 	call	#0x459e	
+    45d8:	0d 10       	rrc	r13		
+    45da:	2d b2       	bit	#4,	r13	;r2 As==10
+    45dc:	04 28       	jnc	$+10     	;abs 0x45e6
+    45de:	3e e3       	inv	r14		
+    45e0:	1e 53       	inc	r14		
+    45e2:	3c e3       	inv	r12		
+    45e4:	1c 53       	inc	r12		
+    45e6:	3d b2       	bit	#8,	r13	;r2 As==11
+    45e8:	02 28       	jnc	$+6      	;abs 0x45ee
+    45ea:	3c e3       	inv	r12		
+    45ec:	1c 53       	inc	r12		
+    45ee:	30 41       	ret			
 
 Disassembly of section .vectors:
 
