@@ -8,7 +8,7 @@
 #include <stdlib.h>
 #include "ErrorCodes.h"
 
-#define NUMTASKS    3  /* # tasks admitted                                 */
+#define NUMTASKS    10  /* # tasks admitted                                 */
 volatile uint8_t BusyPrio;      /* Current priority being served */
 volatile uint8_t Pending;       /* Is set when a task is pending */
 

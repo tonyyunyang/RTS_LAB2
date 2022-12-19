@@ -13,7 +13,7 @@
 #define PURPLE (uint8_t) 0x01
 #define BROWN  (uint8_t) 0x02
 #define WHITE  (uint8_t) 0x04
-
+#define PINK   (uint8_t) 0x08
 #define RED    (uint8_t) 0x10
 #define GREEN  (uint8_t) 0x20
 //#define BLUE   (uint8_t) 0x20

@@ -22,7 +22,7 @@ Common symbol       size              file
 
 BusyPrio            0x1               SchedTest.o
 Pending             0x1               SchedTest.o
-Tasks               0x30              SchedulerOnline.o
+Tasks               0xa0              SchedulerOnline.o
 NextInterruptTime   0x2               SchedulerOnline.o
 
 Memory Configuration
@@ -141,7 +141,7 @@ LOAD /opt/msp430-gcc-4.4.2/lib/gcc/msp430/4.4.2/msp2/libgcc.a
 .rela.plt
  *(.rela.plt)
 
-.text           0x00004000      0x654
+.text           0x00004000      0x6fe
                 0x00004000                . = ALIGN (0x2)
  *(.init)
  *(.init)
@@ -204,62 +204,62 @@ LOAD /opt/msp430-gcc-4.4.2/lib/gcc/msp430/4.4.2/msp2/libgcc.a
                 0x00004030                vector_ffe6
                 0x00004030                vector_fff6
                 0x00004030                vector_ffea
- .text          0x00004036      0x156 SchedTest.o
+ .text          0x00004036      0x1fc SchedTest.o
                 0x00004036                CountDelay
-                0x00004150                BlinkYellow
-                0x00004114                BlinkGreen
+                0x000041f6                BlinkYellow
+                0x000041ba                BlinkGreen
                 0x0000404e                CountRealtimeDelay
                 0x0000406e                main
-                0x000040d8                BlinkRed
- .text          0x0000418c       0x20 Led.o
-                0x0000418c                InitLeds
-                0x000041a6                ToggleLeds
-                0x00004196                SetLeds
- .text          0x000041ac       0x18 Clock.o
-                0x000041ac                InitClock
- .text          0x000041c4       0x2e Context.o
-                0x000041dc                ResumeContext
-                0x000041c4                ContextSwitch
- .text          0x000041f2      0x208 SchedulerOnline.o
-                0x00004242                RegisterTask
-                0x0000433e                vector_ffec
-                0x000042c6                UnRegisterTask
-                0x0000433e                TimerIntrpt
-                0x000041f2                IntDisable
-                0x000042fa                lcm
-                0x000042da                gcd
-                0x000041fc                InitTasks
-                0x000041f8                RestoreSW
- .text          0x000043fa       0x62 Scheduler_P_FP.o
-                0x000043fa                Scheduler_P_FP
- .text          0x0000445c      0x152 Scheduler_P_EDF.o
-                0x0000445c                Scheduler_P_EDF
- .text          0x000045ae       0x54 TimeTracking.o
-                0x000045ae                StartTracking
-                0x000045d0                AddJobExecution
-                0x000045d6                PrintResults
-                0x000045ba                StopTracking
- .text          0x00004602        0x0 /opt/msp430-gcc-4.4.2/lib/gcc/msp430/4.4.2/msp2/libgcc.a(_divmodhi4.o)
- .text          0x00004602        0x0 /opt/msp430-gcc-4.4.2/lib/gcc/msp430/4.4.2/msp2/libgcc.a(_reset_vector__.o)
- .text          0x00004602        0x0 /opt/msp430-gcc-4.4.2/lib/gcc/msp430/4.4.2/msp2/libgcc.a(__low_level_init.o)
- .text          0x00004602        0x0 /opt/msp430-gcc-4.4.2/lib/gcc/msp430/4.4.2/msp2/libgcc.a(__init_stack.o)
- .text          0x00004602        0x0 /opt/msp430-gcc-4.4.2/lib/gcc/msp430/4.4.2/msp2/libgcc.a(_copy_data.o)
- .text          0x00004602        0x0 /opt/msp430-gcc-4.4.2/lib/gcc/msp430/4.4.2/msp2/libgcc.a(_clear_bss.o)
- .text          0x00004602        0x0 /opt/msp430-gcc-4.4.2/lib/gcc/msp430/4.4.2/msp2/libgcc.a(__jump_to_main.o)
- .text          0x00004602        0x0 /opt/msp430-gcc-4.4.2/lib/gcc/msp430/4.4.2/msp2/libgcc.a(_udivmodhi4.o)
-                0x00004602                . = ALIGN (0x2)
+                0x0000417e                BlinkRed
+ .text          0x00004232       0x20 Led.o
+                0x00004232                InitLeds
+                0x0000424c                ToggleLeds
+                0x0000423c                SetLeds
+ .text          0x00004252       0x18 Clock.o
+                0x00004252                InitClock
+ .text          0x0000426a       0x2e Context.o
+                0x00004282                ResumeContext
+                0x0000426a                ContextSwitch
+ .text          0x00004298      0x1e6 SchedulerOnline.o
+                0x000042ce                RegisterTask
+                0x000043ca                vector_ffec
+                0x00004352                UnRegisterTask
+                0x000043ca                TimerIntrpt
+                0x00004298                IntDisable
+                0x00004386                lcm
+                0x00004366                gcd
+                0x000042a2                InitTasks
+                0x0000429e                RestoreSW
+ .text          0x0000447e       0x62 Scheduler_P_FP.o
+                0x0000447e                Scheduler_P_FP
+ .text          0x000044e0      0x178 Scheduler_P_EDF.o
+                0x000044e0                Scheduler_P_EDF
+ .text          0x00004658       0x54 TimeTracking.o
+                0x00004658                StartTracking
+                0x0000467a                AddJobExecution
+                0x00004680                PrintResults
+                0x00004664                StopTracking
+ .text          0x000046ac        0x0 /opt/msp430-gcc-4.4.2/lib/gcc/msp430/4.4.2/msp2/libgcc.a(_divmodhi4.o)
+ .text          0x000046ac        0x0 /opt/msp430-gcc-4.4.2/lib/gcc/msp430/4.4.2/msp2/libgcc.a(_reset_vector__.o)
+ .text          0x000046ac        0x0 /opt/msp430-gcc-4.4.2/lib/gcc/msp430/4.4.2/msp2/libgcc.a(__low_level_init.o)
+ .text          0x000046ac        0x0 /opt/msp430-gcc-4.4.2/lib/gcc/msp430/4.4.2/msp2/libgcc.a(__init_stack.o)
+ .text          0x000046ac        0x0 /opt/msp430-gcc-4.4.2/lib/gcc/msp430/4.4.2/msp2/libgcc.a(_copy_data.o)
+ .text          0x000046ac        0x0 /opt/msp430-gcc-4.4.2/lib/gcc/msp430/4.4.2/msp2/libgcc.a(_clear_bss.o)
+ .text          0x000046ac        0x0 /opt/msp430-gcc-4.4.2/lib/gcc/msp430/4.4.2/msp2/libgcc.a(__jump_to_main.o)
+ .text          0x000046ac        0x0 /opt/msp430-gcc-4.4.2/lib/gcc/msp430/4.4.2/msp2/libgcc.a(_udivmodhi4.o)
+                0x000046ac                . = ALIGN (0x2)
  *(.text.*)
- .text.libgcc   0x00004602       0x36 /opt/msp430-gcc-4.4.2/lib/gcc/msp430/4.4.2/msp2/libgcc.a(_divmodhi4.o)
-                0x00004602                __divmodhi4
- .text.libgcc   0x00004638        0x0 /opt/msp430-gcc-4.4.2/lib/gcc/msp430/4.4.2/msp2/libgcc.a(_reset_vector__.o)
- .text.libgcc   0x00004638        0x0 /opt/msp430-gcc-4.4.2/lib/gcc/msp430/4.4.2/msp2/libgcc.a(__low_level_init.o)
- .text.libgcc   0x00004638        0x0 /opt/msp430-gcc-4.4.2/lib/gcc/msp430/4.4.2/msp2/libgcc.a(__init_stack.o)
- .text.libgcc   0x00004638        0x0 /opt/msp430-gcc-4.4.2/lib/gcc/msp430/4.4.2/msp2/libgcc.a(_copy_data.o)
- .text.libgcc   0x00004638        0x0 /opt/msp430-gcc-4.4.2/lib/gcc/msp430/4.4.2/msp2/libgcc.a(_clear_bss.o)
- .text.libgcc   0x00004638        0x0 /opt/msp430-gcc-4.4.2/lib/gcc/msp430/4.4.2/msp2/libgcc.a(__jump_to_main.o)
- .text.libgcc   0x00004638       0x1c /opt/msp430-gcc-4.4.2/lib/gcc/msp430/4.4.2/msp2/libgcc.a(_udivmodhi4.o)
-                0x00004638                __udivmodhi4
-                0x00004654                . = ALIGN (0x2)
+ .text.libgcc   0x000046ac       0x36 /opt/msp430-gcc-4.4.2/lib/gcc/msp430/4.4.2/msp2/libgcc.a(_divmodhi4.o)
+                0x000046ac                __divmodhi4
+ .text.libgcc   0x000046e2        0x0 /opt/msp430-gcc-4.4.2/lib/gcc/msp430/4.4.2/msp2/libgcc.a(_reset_vector__.o)
+ .text.libgcc   0x000046e2        0x0 /opt/msp430-gcc-4.4.2/lib/gcc/msp430/4.4.2/msp2/libgcc.a(__low_level_init.o)
+ .text.libgcc   0x000046e2        0x0 /opt/msp430-gcc-4.4.2/lib/gcc/msp430/4.4.2/msp2/libgcc.a(__init_stack.o)
+ .text.libgcc   0x000046e2        0x0 /opt/msp430-gcc-4.4.2/lib/gcc/msp430/4.4.2/msp2/libgcc.a(_copy_data.o)
+ .text.libgcc   0x000046e2        0x0 /opt/msp430-gcc-4.4.2/lib/gcc/msp430/4.4.2/msp2/libgcc.a(_clear_bss.o)
+ .text.libgcc   0x000046e2        0x0 /opt/msp430-gcc-4.4.2/lib/gcc/msp430/4.4.2/msp2/libgcc.a(__jump_to_main.o)
+ .text.libgcc   0x000046e2       0x1c /opt/msp430-gcc-4.4.2/lib/gcc/msp430/4.4.2/msp2/libgcc.a(_udivmodhi4.o)
+                0x000046e2                __udivmodhi4
+                0x000046fe                . = ALIGN (0x2)
  *(.fini9)
  *(.fini9)
  *(.fini8)
@@ -282,9 +282,9 @@ LOAD /opt/msp430-gcc-4.4.2/lib/gcc/msp430/4.4.2/msp2/libgcc.a
  *(.fini0)
  *(.fini)
  *(.fini)
-                0x00004654                _etext = .
+                0x000046fe                _etext = .
 
-.data           0x00001100        0x0 load address 0x00004654
+.data           0x00001100        0x0 load address 0x000046fe
                 0x00001100                PROVIDE (__data_start, .)
                 0x00001100                . = ALIGN (0x2)
  *(.data)
@@ -310,7 +310,7 @@ LOAD /opt/msp430-gcc-4.4.2/lib/gcc/msp430/4.4.2/msp2/libgcc.a
  *(.gnu.linkonce.d*)
                 0x00001100                . = ALIGN (0x2)
                 0x00001100                _edata = .
-                0x00004654                PROVIDE (__data_load_start, LOADADDR (.data))
+                0x000046fe                PROVIDE (__data_load_start, LOADADDR (.data))
                 0x00000000                PROVIDE (__data_size, SIZEOF (.data))
 
 .bootloader     0x00000c00        0x0
@@ -329,7 +329,7 @@ LOAD /opt/msp430-gcc-4.4.2/lib/gcc/msp430/4.4.2/msp2/libgcc.a
                 0x00001000                . = ALIGN (0x2)
  *(.infomemnobits.*)
 
-.bss            0x00001100       0x44
+.bss            0x00001100       0xb4
                 0x00001100                PROVIDE (__bss_start, .)
  *(.bss)
  .bss           0x00001100        0x0 /opt/msp430-gcc-4.4.2/lib/gcc/msp430/4.4.2/../../../../msp430/lib/crt430x1611.o
@@ -354,20 +354,20 @@ LOAD /opt/msp430-gcc-4.4.2/lib/gcc/msp430/4.4.2/msp2/libgcc.a
  COMMON         0x00001110        0x2 SchedTest.o
                 0x00001110                BusyPrio
                 0x00001111                Pending
- COMMON         0x00001112       0x32 SchedulerOnline.o
+ COMMON         0x00001112       0xa2 SchedulerOnline.o
                 0x00001112                Tasks
-                0x00001142                NextInterruptTime
-                0x00001144                PROVIDE (__bss_end, .)
-                0x00001144                _end = .
-                0x00000044                PROVIDE (__bss_size, SIZEOF (.bss))
+                0x000011b2                NextInterruptTime
+                0x000011b4                PROVIDE (__bss_end, .)
+                0x000011b4                _end = .
+                0x000000b4                PROVIDE (__bss_size, SIZEOF (.bss))
 
-.noinit         0x00001144        0x0
-                0x00001144                PROVIDE (__noinit_start, .)
+.noinit         0x000011b4        0x0
+                0x000011b4                PROVIDE (__noinit_start, .)
  *(.noinit)
  *(.noinit.*)
  *(COMMON)
-                0x00001144                PROVIDE (__noinit_end, .)
-                0x00001144                _end = .
+                0x000011b4                PROVIDE (__noinit_end, .)
+                0x000011b4                _end = .
 
 .vectors        0x0000ffe0       0x20
                 0x0000ffe0                PROVIDE (__vectors_start, .)
@@ -454,50 +454,50 @@ LOAD /opt/msp430-gcc-4.4.2/lib/gcc/msp430/4.4.2/msp2/libgcc.a
  .debug_pubnames
                 0x00004517      0x9e1 TimeTracking.o
 
-.debug_info     0x00000000     0xdd0d
+.debug_info     0x00000000     0xdd11
  *(.debug_info)
  .debug_info    0x00000000     0x1c0b SchedTest.o
  .debug_info    0x00001c0b     0x1ab4 Led.o
  .debug_info    0x000036bf     0x1a47 Clock.o
  .debug_info    0x00005106     0x1ac1 Context.o
- .debug_info    0x00006bc7     0x1e27 SchedulerOnline.o
- .debug_info    0x000089ee     0x1bc1 Scheduler_P_FP.o
- .debug_info    0x0000a5af     0x1c51 Scheduler_P_EDF.o
- .debug_info    0x0000c200     0x1b0d TimeTracking.o
+ .debug_info    0x00006bc7     0x1e2b SchedulerOnline.o
+ .debug_info    0x000089f2     0x1bc1 Scheduler_P_FP.o
+ .debug_info    0x0000a5b3     0x1c51 Scheduler_P_EDF.o
+ .debug_info    0x0000c204     0x1b0d TimeTracking.o
  *(.gnu.linkonce.wi.*)
 
-.debug_abbrev   0x00000000     0x1148
+.debug_abbrev   0x00000000     0x1157
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0x25b SchedTest.o
  .debug_abbrev  0x0000025b      0x1bb Led.o
  .debug_abbrev  0x00000416      0x19b Clock.o
  .debug_abbrev  0x000005b1      0x1b9 Context.o
- .debug_abbrev  0x0000076a      0x362 SchedulerOnline.o
- .debug_abbrev  0x00000acc      0x231 Scheduler_P_FP.o
- .debug_abbrev  0x00000cfd      0x256 Scheduler_P_EDF.o
- .debug_abbrev  0x00000f53      0x1f5 TimeTracking.o
+ .debug_abbrev  0x0000076a      0x371 SchedulerOnline.o
+ .debug_abbrev  0x00000adb      0x231 Scheduler_P_FP.o
+ .debug_abbrev  0x00000d0c      0x256 Scheduler_P_EDF.o
+ .debug_abbrev  0x00000f62      0x1f5 TimeTracking.o
 
-.debug_line     0x00000000     0x1492
+.debug_line     0x00000000     0x14d1
  *(.debug_line)
- .debug_line    0x00000000      0x343 SchedTest.o
- .debug_line    0x00000343      0x226 Led.o
- .debug_line    0x00000569      0x1b4 Clock.o
- .debug_line    0x0000071d      0x233 Context.o
- .debug_line    0x00000950      0x39d SchedulerOnline.o
- .debug_line    0x00000ced      0x254 Scheduler_P_FP.o
- .debug_line    0x00000f41      0x2ec Scheduler_P_EDF.o
- .debug_line    0x0000122d      0x265 TimeTracking.o
+ .debug_line    0x00000000      0x36d SchedTest.o
+ .debug_line    0x0000036d      0x226 Led.o
+ .debug_line    0x00000593      0x1b4 Clock.o
+ .debug_line    0x00000747      0x233 Context.o
+ .debug_line    0x0000097a      0x3b5 SchedulerOnline.o
+ .debug_line    0x00000d2f      0x254 Scheduler_P_FP.o
+ .debug_line    0x00000f83      0x2e9 Scheduler_P_EDF.o
+ .debug_line    0x0000126c      0x265 TimeTracking.o
 
-.debug_frame    0x00000000      0x29a
+.debug_frame    0x00000000      0x2e8
  *(.debug_frame)
- .debug_frame   0x00000000       0x92 SchedTest.o
- .debug_frame   0x00000092       0x38 Led.o
- .debug_frame   0x000000ca       0x20 Clock.o
- .debug_frame   0x000000ea       0x2c Context.o
- .debug_frame   0x00000116       0xd4 SchedulerOnline.o
- .debug_frame   0x000001ea       0x32 Scheduler_P_FP.o
- .debug_frame   0x0000021c       0x3a Scheduler_P_EDF.o
- .debug_frame   0x00000256       0x44 TimeTracking.o
+ .debug_frame   0x00000000       0xd4 SchedTest.o
+ .debug_frame   0x000000d4       0x38 Led.o
+ .debug_frame   0x0000010c       0x20 Clock.o
+ .debug_frame   0x0000012c       0x2c Context.o
+ .debug_frame   0x00000158       0xd4 SchedulerOnline.o
+ .debug_frame   0x0000022c       0x32 Scheduler_P_FP.o
+ .debug_frame   0x0000025e       0x46 Scheduler_P_EDF.o
+ .debug_frame   0x000002a4       0x44 TimeTracking.o
 
 .debug_str      0x00000000     0x10ee
  *(.debug_str)
@@ -518,26 +518,26 @@ LOAD /opt/msp430-gcc-4.4.2/lib/gcc/msp430/4.4.2/msp2/libgcc.a
  .debug_str     0x00001049       0xa5 TimeTracking.o
                                 0xecf (size before relaxing)
 
-.debug_loc      0x00000000      0x453
+.debug_loc      0x00000000      0x4db
  *(.debug_loc)
- .debug_loc     0x00000000      0x148 SchedTest.o
- .debug_loc     0x00000148      0x1e2 SchedulerOnline.o
- .debug_loc     0x0000032a       0x5a Scheduler_P_FP.o
- .debug_loc     0x00000384       0xc4 Scheduler_P_EDF.o
- .debug_loc     0x00000448        0xb TimeTracking.o
+ .debug_loc     0x00000000      0x1c0 SchedTest.o
+ .debug_loc     0x000001c0      0x1e2 SchedulerOnline.o
+ .debug_loc     0x000003a2       0x5a Scheduler_P_FP.o
+ .debug_loc     0x000003fc       0xd4 Scheduler_P_EDF.o
+ .debug_loc     0x000004d0        0xb TimeTracking.o
 
 .debug_macinfo
  *(.debug_macinfo)
                 0x00003900                PROVIDE (__stack, 0x3900)
-                0x00004654                PROVIDE (__data_start_rom, _etext)
-                0x00004654                PROVIDE (__data_end_rom, (_etext + SIZEOF (.data)))
-                0x00004654                PROVIDE (__noinit_start_rom, (_etext + SIZEOF (.data)))
-                0x00004654                PROVIDE (__noinit_end_rom, ((_etext + SIZEOF (.data)) + SIZEOF (.noinit)))
+                0x000046fe                PROVIDE (__data_start_rom, _etext)
+                0x000046fe                PROVIDE (__data_end_rom, (_etext + SIZEOF (.data)))
+                0x000046fe                PROVIDE (__noinit_start_rom, (_etext + SIZEOF (.data)))
+                0x000046fe                PROVIDE (__noinit_end_rom, ((_etext + SIZEOF (.data)) + SIZEOF (.noinit)))
                 0x00000000                PROVIDE (__subdevice_has_heap, 0x0)
 OUTPUT(SchedTest.elf elf32-msp430)
 
-.debug_ranges   0x00004654       0x18
- .debug_ranges  0x00004654       0x18 Scheduler_P_EDF.o
+.debug_ranges   0x000046fe       0x18
+ .debug_ranges  0x000046fe       0x18 Scheduler_P_EDF.o
 
 Cross Reference Table
 
@@ -578,7 +578,6 @@ Scheduler_P_EDF                                   Scheduler_P_EDF.o
                                                   SchedulerOnline.o
 Scheduler_P_FP                                    Scheduler_P_FP.o
 SetLeds                                           Led.o
-                                                  Scheduler_P_EDF.o
                                                   SchedTest.o
 StartTracking                                     TimeTracking.o
 StopTracking                                      TimeTracking.o

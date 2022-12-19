@@ -120,14 +120,6 @@ int lcm(int a, int b) {
 interrupt (TIMERA0_VECTOR) TimerIntrpt (void)
 {
   ContextSwitch();
-
-  /* ----------------------- INSERT CODE HERE ----------------------- */
-
-  /* Insert timer interrupt logic, what tasks are pending? */ 
-  /* When should the next timer interrupt occur? Note: we only want interrupts at job releases */
-
-  /* Super simple, single task example */
-  // This part is to only get the next interrupt time
   // uint16_t hyperperiod = 0;
   uint8_t i = 0;
   uint16_t oldNextInterruptTime = NextInterruptTime; // This is the current time when interrupt occurrs
@@ -148,7 +140,6 @@ interrupt (TIMERA0_VECTOR) TimerIntrpt (void)
       t->FlagNextInterrupt = 0;
     }
   }
-
 
   for (i = 0; i < NUMTASKS; i++) {
     Taskp t = &Tasks[i];
@@ -175,38 +166,7 @@ interrupt (TIMERA0_VECTOR) TimerIntrpt (void)
     if (t->NextRelease == NextInterruptTime) {
       t->FlagNextInterrupt = TT;
     }
-    if ((oldNextInterruptTime % t->Period == 0) && (oldNextInterruptTime % (1024*4) != 0)) {
-
-    }
   }
-  // uint8_t c = 0;
-  // for(c = 0; c < NUMTASKS; c++){
-  //   Taskp t1 = &Tasks[c];
-  //   uint8_t QIAN = t1->NextPendingDeadline / 1000;
-  //   uint8_t BAI = (t1->NextPendingDeadline - QIAN * 1000) / 100;
-  //   uint8_t SHI = (t1->NextPendingDeadline - QIAN * 1000 - BAI * 100) / 10;
-  //   uint8_t GE = t1->NextPendingDeadline - QIAN * 1000 - BAI * 100 - SHI * 10;
-  //   for(i = 0; i < QIAN; i++){
-  //     SetLeds(PINK, 1);
-  //     SetLeds(PINK, 0);
-  //   }
-  //   for(i = 0; i < BAI; i++){
-  //     SetLeds(WHITE, 1);
-  //     SetLeds(WHITE, 0);
-  //   }
-  //   for(i = 0; i < SHI; i++){
-  //     SetLeds(BROWN, 1);
-  //     SetLeds(BROWN, 0);
-  //   }
-  //   for(i = 0; i < GE; i++){
-  //     SetLeds(PURPLE, 1);
-  //     SetLeds(PURPLE, 0);
-  //   }
-  // }
-
-  /* End of example*/
-
-  /* ---------------------------------------------------------------- */
  
 
   TACCR0 = NextInterruptTime;
