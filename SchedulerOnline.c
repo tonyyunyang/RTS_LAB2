@@ -140,6 +140,10 @@ interrupt (TIMERA0_VECTOR) TimerIntrpt (void)
     for (i = 0; i < NUMTASKS; i++) {
       Taskp t = &Tasks[i];
       t->NextRelease += t->Period;
+      if(oldNextInterruptTime != 0){
+        t->NextPendingDeadline += t->Period;
+      }
+      
       t->Activated++;
       t->FlagNextInterrupt = 0;
     }
@@ -150,6 +154,8 @@ interrupt (TIMERA0_VECTOR) TimerIntrpt (void)
     Taskp t = &Tasks[i];
     if (t->FlagNextInterrupt == TT) {
       t->NextRelease += t->Period;
+            t->NextPendingDeadline += t->Period;
+      t->Activated++;
       t->FlagNextInterrupt = 0;
     }
   }
@@ -170,10 +176,34 @@ interrupt (TIMERA0_VECTOR) TimerIntrpt (void)
       t->FlagNextInterrupt = TT;
     }
     if ((oldNextInterruptTime % t->Period == 0) && (oldNextInterruptTime % (1024*4) != 0)) {
-      t->Activated++;
-      t->NextPendingDeadline += t->Period;
+
     }
   }
+  // uint8_t c = 0;
+  // for(c = 0; c < NUMTASKS; c++){
+  //   Taskp t1 = &Tasks[c];
+  //   uint8_t QIAN = t1->NextPendingDeadline / 1000;
+  //   uint8_t BAI = (t1->NextPendingDeadline - QIAN * 1000) / 100;
+  //   uint8_t SHI = (t1->NextPendingDeadline - QIAN * 1000 - BAI * 100) / 10;
+  //   uint8_t GE = t1->NextPendingDeadline - QIAN * 1000 - BAI * 100 - SHI * 10;
+  //   for(i = 0; i < QIAN; i++){
+  //     SetLeds(PINK, 1);
+  //     SetLeds(PINK, 0);
+  //   }
+  //   for(i = 0; i < BAI; i++){
+  //     SetLeds(WHITE, 1);
+  //     SetLeds(WHITE, 0);
+  //   }
+  //   for(i = 0; i < SHI; i++){
+  //     SetLeds(BROWN, 1);
+  //     SetLeds(BROWN, 0);
+  //   }
+  //   for(i = 0; i < GE; i++){
+  //     SetLeds(PURPLE, 1);
+  //     SetLeds(PURPLE, 0);
+  //   }
+  // }
+
   /* End of example*/
 
   /* ---------------------------------------------------------------- */
