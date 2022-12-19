@@ -5,7 +5,7 @@ static void ExecuteTask (Taskp t)
 {
   /* ----------------------- INSERT CODE HERE ----------------------- */
 
-  if (t->RemainExecutionTime <= 0) {
+  if (t->RemainExecutionTime == 0) {
     t->Invoked++;
   }
   t->Taskf(t->CurrentExecutionTime);
@@ -27,8 +27,6 @@ void Scheduler_P_FP (Task Tasks[])
   uint16_t eliminateWindowTime = 0;
   Taskp t = &Tasks[NUMTASKS - 1];
   uint16_t window = t->WindowTime;
-
-  
   
   for (i = (NUMTASKS - 1); i >= 0; i--) {
     Taskp ts = &Tasks[i];

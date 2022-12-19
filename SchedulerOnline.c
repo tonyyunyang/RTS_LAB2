@@ -158,12 +158,13 @@ interrupt (TIMERA0_VECTOR) TimerIntrpt (void)
     DetermineNextInterruptTime(t->NextRelease);
   }
   
+  uint8_t label = 0;
   for (i = 0; i < NUMTASKS; i++) {
     Taskp t = &Tasks[i];
     if (t->NextRelease == NextInterruptTime){
       t->Flags = TT;
     }
-    if ((oldNextInterruptTime % (1024*4) != 0) && (oldNextInterruptTime % t->Period == 0)) {
+    if ((oldNextInterruptTime % t->Period == 0) && (oldNextInterruptTime % (1024*4) != 0)) {
       t->Activated++;
       t->RemainExecutionTime += t->ExecutionTime;
     }
