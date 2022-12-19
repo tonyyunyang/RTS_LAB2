@@ -136,7 +136,7 @@ interrupt (TIMERA0_VECTOR) TimerIntrpt (void)
   //   hyperperiod = lcm(hyperperiod, t->Period);
   // }
 
-  if (NextInterruptTime % (1024*4) == 0) {
+  if (oldNextInterruptTime % (1024*4) == 0) {
     for (i = 0; i < NUMTASKS; i++) {
       Taskp t = &Tasks[i];
       t->NextRelease += t->Period;
