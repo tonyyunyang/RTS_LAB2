@@ -145,8 +145,6 @@ interrupt (TIMERA0_VECTOR) TimerIntrpt (void)
     }
   }
 
-  Taskp t = &Tasks[0];
-  NextInterruptTime = t->NextRelease;
 
   for (i = 0; i < NUMTASKS; i++) {
     Taskp t = &Tasks[i];
@@ -154,8 +152,17 @@ interrupt (TIMERA0_VECTOR) TimerIntrpt (void)
       t->NextRelease += t->Period;
       t->FlagNextInterrupt = 0;
     }
+  }
+
+  Taskp t = &Tasks[0];
+  NextInterruptTime = t->NextRelease;
+
+
+  for (i = 0; i < NUMTASKS; i++) {
+    Taskp t = &Tasks[i];
     DetermineNextInterruptTime(t->NextRelease);
   }
+
   
   for (i = 0; i < NUMTASKS; i++) {
     Taskp t = &Tasks[i];
