@@ -8,6 +8,8 @@
 
 Task Tasks[NUMTASKS];           /* Lower indices: lower priorities           */
 uint16_t NextInterruptTime;     /* Timestamp at which next interrupt should occur */
+volatile uint8_t BusyPrio;      /* Current priority being served */
+volatile uint8_t Pending;       /* Is set when a task is pending */
 
 uint16_t IntDisable (void)
 {
@@ -125,19 +127,21 @@ interrupt (TIMERA0_VECTOR) TimerIntrpt (void)
   /* When should the next timer interrupt occur? Note: we only want interrupts at job releases */
 
   /* Super simple, single task example */
-  unit16_t hyperperiod = 0;
+  // This part is to only get the next interrupt time
+  // uint16_t hyperperiod = 0;
   uint8_t i = 0;
-  for (i = 0; i < NUMTASKS; i++) {
-      Taskp t = &Tasks[i];
-      hyperperiod = lcm(hyperperiod, t->Period);
-    }
+  uint16_t oldNextInterruptTime = NextInterruptTime; // This is the current time when interrupt occurrs
+  // for (i = 0; i < NUMTASKS; i++) {
+  //   Taskp t = &Tasks[i];
+  //   hyperperiod = lcm(hyperperiod, t->Period);
+  // }
 
-  if (NextInterruptTime % hyperperiod == 0) {
+  if (NextInterruptTime % (1024*4) == 0) {
     for (i = 0; i < NUMTASKS; i++) {
       Taskp t = &Tasks[i];
       t->NextRelease += t->Period;
       t->Activated++;
-      t->Flags = 0;
+      t->FlagNextInterrupt = 0;
     }
   }
 
@@ -146,9 +150,9 @@ interrupt (TIMERA0_VECTOR) TimerIntrpt (void)
 
   for (i = 0; i < NUMTASKS; i++) {
     Taskp t = &Tasks[i];
-    if (t->Flags == TT) {
+    if (t->FlagNextInterrupt == TT) {
       t->NextRelease += t->Period;
-      t->Flags = 0;
+      t->FlagNextInterrupt = 0;
     }
     DetermineNextInterruptTime(t->NextRelease);
   }
@@ -156,14 +160,12 @@ interrupt (TIMERA0_VECTOR) TimerIntrpt (void)
   for (i = 0; i < NUMTASKS; i++) {
     Taskp t = &Tasks[i];
     if (t->NextRelease == NextInterruptTime) {
-      t->Flags = TT;
+      t->FlagNextInterrupt = TT;
+    }
+    if ((oldNextInterruptTime % t->Period == 0) && (oldNextInterruptTime % (1024*4) != 0)) {
       t->Activated++;
     }
   }
-  // Taskp t = &Tasks[0];
-  // t->NextRelease += t->Period; // set next release time
-  // t->Activated++;
-  // NextInterruptTime = t->NextRelease;
   /* End of example*/
 
   /* ---------------------------------------------------------------- */
@@ -171,7 +173,7 @@ interrupt (TIMERA0_VECTOR) TimerIntrpt (void)
 
   TACCR0 = NextInterruptTime;
 
-  // CALL_SCHEDULER;
+  CALL_SCHEDULER;
 
   ResumeContext();
 }

@@ -9,6 +9,8 @@
 #include "ErrorCodes.h"
 
 #define NUMTASKS    3  /* # tasks admitted                                 */
+volatile uint8_t BusyPrio;      /* Current priority being served */
+volatile uint8_t Pending;       /* Is set when a task is pending */
 
 #define DIRECT      1   /* task flag: execute uninterruptable, when ready   */
 #define PERIODIC    2   /* general flag: trigger by timer interrupt         */
@@ -36,6 +38,7 @@ typedef struct Task {
            uint16_t ExecutionTime;/* Execution time of the task */ 
   void (*Taskf) (uint16_t);       /* function to be called as task body         */
   uint8_t Prio;                   /* priority, field needed for reverse lookup  */
+  uint8_t FlagNextInterrupt;
 } Task;
   
 #define NULLTASK (Taskp) 0

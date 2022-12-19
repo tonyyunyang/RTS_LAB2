@@ -55,6 +55,8 @@ void BlinkRed (uint16_t ExecutionTime)
 
 int main(void) 
 { 
+  BusyPrio = NUMTASKS; // set the BusyPrio to a number greater than the largest task num
+
   WDTCTL = WDTPW + WDTHOLD;       // Stop watchdog timer 
   
   InitClock ();
