@@ -14,10 +14,10 @@ void Scheduler_P_EDF (Task Tasks[])
   uint8_t new_prio[10];
   uint8_t a = 0;
   uint8_t b = 0;
+  uint8_t c = 0;
   for(i = 0; i < NUMTASKS; i++){
     new_prio[i] = i;
   }
-  uint8_t c = 0;
 
   for(c = 0; c < NUMTASKS; c++){
     for(i = NUMTASKS - 1; i > 0; i--){
