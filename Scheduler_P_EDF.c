@@ -50,18 +50,18 @@ void Scheduler_P_EDF (Task Tasks[])
     }
   }
 
-  for(i = 0; i < NUMTASKS; i++){
-    if(new_prio[i] == 0){
-      SetLeds(PINK, 1);
-      SetLeds(PINK, 0);      
-    }
-    for(c = 0; c < new_prio[i]; c++){
-      SetLeds(WHITE, 1);
-      SetLeds(WHITE, 0);
-    }
-      SetLeds(BROWN, 1);
-      SetLeds(BROWN, 0);
-  }
+  // for(i = 0; i < NUMTASKS; i++){
+  //   if(new_prio[i] == 0){
+  //     SetLeds(PINK, 1);
+  //     SetLeds(PINK, 0);      
+  //   }
+  //   for(c = 0; c < new_prio[i]; c++){
+  //     SetLeds(WHITE, 1);
+  //     SetLeds(WHITE, 0);
+  //   }
+  //     SetLeds(BROWN, 1);
+  //     SetLeds(BROWN, 0);
+  // }
 
   for(BusyPrio = 0; BusyPrio < oldBP; BusyPrio++) {
     Taskp t = &Tasks[new_prio[BusyPrio]];
