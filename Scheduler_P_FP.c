@@ -27,7 +27,7 @@ void Scheduler_P_FP (Task Tasks[])
       _EINT(); 
       ExecuteTask(t);
       _DINT();
-      t->Activated = t->Invoked;
+      // t->Activated = t->Invoked;
     }
     
   }
