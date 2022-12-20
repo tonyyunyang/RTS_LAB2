@@ -145,8 +145,8 @@ interrupt (TIMERA0_VECTOR) TimerIntrpt (void)
     Taskp t = &Tasks[i];
     if (t->FlagNextInterrupt == TT) {
       t->NextRelease += t->Period;
-            t->NextPendingDeadline += t->Period;
-      t->Activated++;
+      t->NextPendingDeadline += t->Period;
+      // t->Activated++;
       t->FlagNextInterrupt = 0;
     }
   }
@@ -165,6 +165,10 @@ interrupt (TIMERA0_VECTOR) TimerIntrpt (void)
     Taskp t = &Tasks[i];
     if (t->NextRelease == NextInterruptTime) {
       t->FlagNextInterrupt = TT;
+    }
+
+    if ((oldNextInterruptTime % t->Period == 0) && (oldNextInterruptTime % (1024*4) != 0)) {
+      t->Activated++;
     }
   }
  

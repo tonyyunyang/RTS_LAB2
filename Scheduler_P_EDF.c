@@ -42,7 +42,7 @@ void Scheduler_P_EDF (Task Tasks[])
       //   new_prio[i - 1] = a;
       // }
       if(t->NextPendingDeadline == t1->NextPendingDeadline){
-        if(t1->Period > t->Period){
+        if(t1->BusyFlag == 1){
           new_prio[i] = b;
           new_prio[i - 1] = a;
         }
@@ -50,27 +50,29 @@ void Scheduler_P_EDF (Task Tasks[])
     }
   }
 
-  // for(i = 0; i < NUMTASKS; i++){
-  //   if(new_prio[i] == 0){
-  //     SetLeds(PINK, 1);
-  //     SetLeds(PINK, 0);      
-  //   }
-  //   for(c = 0; c < new_prio[i]; c++){
-  //     SetLeds(WHITE, 1);
-  //     SetLeds(WHITE, 0);
-  //   }
-  //     SetLeds(BROWN, 1);
-  //     SetLeds(BROWN, 0);
-  // }
+  for(i = 0; i < NUMTASKS; i++){
+    if(new_prio[i] == 0){
+      SetLeds(PINK, 1);
+      SetLeds(PINK, 0);      
+    }
+    for(c = 0; c < new_prio[i]; c++){
+      SetLeds(WHITE, 1);
+      SetLeds(WHITE, 0);
+    }
+      SetLeds(BROWN, 1);
+      SetLeds(BROWN, 0);
+  }
 
   for(BusyPrio = 0; BusyPrio < oldBP; BusyPrio++) {
     Taskp t = &Tasks[new_prio[BusyPrio]];
+    t->BusyFlag = 1;
     while ((t->Activated != t->Invoked) && (t->Flags & TRIGGERED))
     { 
       _EINT(); 
       ExecuteTask(t);
       _DINT();
     }
+    t->BusyFlag = 0;
   }
 
 }
